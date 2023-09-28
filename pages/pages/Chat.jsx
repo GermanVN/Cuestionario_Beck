@@ -90,7 +90,7 @@ const Chat = (props) => {
 
         setMessages((old) => [
           ...old,
-          { from: "computer", text: `Gracias ${props.userInfo?.email} por contestar todas las preguntas el resultado de este analisis es el siguiente` },
+          { from: "computer", text: `Gracias ${props.userInfo?.name} por contestar todas las preguntas el resultado de este analisis es el siguiente` },
         ]);
       }, 2000);
 
