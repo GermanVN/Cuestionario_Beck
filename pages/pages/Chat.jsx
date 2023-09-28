@@ -141,7 +141,7 @@ const Chat = (props) => {
 
         setMessages((old) => [
           ...old,
-          { from: "computer", text: cleanBotAnswer(getRateOnly(response)) },
+          { from: "computer", text: getRateOnly(response) },
         ]);
       }, 1000);
 
