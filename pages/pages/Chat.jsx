@@ -136,14 +136,14 @@ const Chat = (props) => {
       answers.push(`${count+1} | ${data} | ${getRateOnly(response)}`)
       console.log(answers)
 
-      /*setTimeout(() => {
+      setTimeout(() => {
         //startSpeak(cleanBotAnswer(response))
 
         setMessages((old) => [
           ...old,
-          { from: "computer", text: cleanBotAnswer(response) },
+          { from: "computer", text: cleanBotAnswer(getRateOnly(response)) },
         ]);
-      }, 2000);*/
+      }, 1000);
 
       setTimeout(() => {
         if (!initial) {

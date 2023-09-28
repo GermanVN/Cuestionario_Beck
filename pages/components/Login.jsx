@@ -269,8 +269,11 @@ const Login = (props) => {
               <option value="empleado">Empleado</option>
               <option value="amadecasa">Ama de casa</option>
               <option value="estudiante">Estudiante</option>
-              <option value="tecnico">Técnico</option>
+              <option value="autonomo">Trabajador autónomo</option>
+              <option value="empresario">Empresario</option>
+              <option value="jubilado">Jubilado</option>
               <option value="desempleado">Desempleado</option>
+              <option value="freelancer">Freelancer</option>
 
             </select>
           </div>
