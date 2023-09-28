@@ -90,7 +90,7 @@ const Chat = (props) => {
 
         setMessages((old) => [
           ...old,
-          { from: "computer", text: "Gracias por contestar todas las preguntas el resultado de este analisis es el siguiente" },
+          { from: "computer", text: `Gracias ${props.userInfo?.email} por contestar todas las preguntas el resultado de este analisis es el siguiente` },
         ]);
       }, 2000);
 
@@ -106,6 +106,21 @@ const Chat = (props) => {
         setMessages((old) => [
           ...old,
           { from: "computer", text: finalResponse},
+        ]);
+      }, 4000);
+
+      setTimeout(() => {
+        if (!initial) {
+          count = count + 1;
+        }
+
+        if (initial) {
+          setInitial(false);
+        }
+
+        setMessages((old) => [
+          ...old,
+          { from: "computer", text: `Le mandaremos los resultados de este cuestionario a su email: ${props.userInfo?.email}`},
         ]);
       }, 4000);
 
@@ -143,7 +158,7 @@ const Chat = (props) => {
           ...old,
           { from: "computer", text: getQuestions(count)},
         ]);
-      }, 4000);
+      }, 2000);
     }
 
     //Cuando todavia no termina el cuestionario y no le dio calificacion
