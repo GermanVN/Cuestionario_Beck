@@ -10,7 +10,7 @@ const Messages = ({ messages }) => {
 
   return (
     <Flex w="100%" h="80%" overflowY="scroll" flexDirection="column" p="3">
-      {messages.map((item, index) => {
+      {messages?.map((item, index) => {
         if (item.from === "me") {
           return (
             <Flex key={index} w="100%" justify="flex-end">

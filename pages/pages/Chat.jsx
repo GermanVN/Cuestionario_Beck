@@ -4,28 +4,17 @@ import Divider from "../components/Divider";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Messages from "../components/Messages";
-import { fetchResponse } from "../Fetch";
+import { fetchResponse } from "../../utils/Fetch";
 import {
   getQuestions,
   getRateFromResponse,
   getRateOnly,
-  cleanBotAnswer,
-} from "../utils/utils";
-import { useSpeechSynthesis, useSpeechRecognition } from "react-speech-kit";
+} from "../../utils/utils";
 
 let count = 0;
 let answers = []
 
-const startSpeak = (message) => {
-  var utterance = new window.SpeechSynthesisUtterance();
-  utterance.lang = "es-MX"; //translates on the fly - soooo awesome (japanese is the funniest)
-  utterance.volume = 4.0;
-  utterance.rate = 0.8;
-  utterance.pitch = 1.0;
-  utterance.text = message;
 
-  speechSynthesis.speak(utterance);
-};
 
 const Chat = (props) => {
   const [messages, setMessages] = useState([]);
@@ -195,7 +184,7 @@ const Chat = (props) => {
   return (
     <Flex w="100%" h="100vh" justify="center" align="center">
       <Flex w={["100%", "100%", "40%"]} h="90%" flexDir="column">
-        <Header name = {props.userInfo.name}/>
+        <Header name = {props.userInfo?.name}/>
         <Divider />
         <Messages messages={messages} />
         <Divider />
