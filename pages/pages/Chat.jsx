@@ -70,11 +70,14 @@ const Chat = (props) => {
 
     console.log("CONTADOR", count);
 
-    const regex = /^almatonta(?:[0-9]|[1-5][0-9]|63)$/;
+    const regex = /almatonta\d+/;
     
 
     // Cuando Termina el cuestionario
     if(count == 20 || regex.test(inputMessage)) {
+
+      console.log("Resultado FInal")
+      console.log(inputMessage)
 
       //Volver a poner las lineas de aabajo comentadas para que funcione bien
       //let lastRate = getRateFromResponse(response, rate, setRate)
