@@ -67,19 +67,21 @@ const Chat = (props) => {
 
     const response = await fetchResponse(data, count);
 
-   
-
 
     console.log("CONTADOR", count);
+
+    const regex = /^almatonta(?:[0-9]|[1-5][0-9]|63)$/;
     
 
     // Cuando Termina el cuestionario
-    if(count == 20) {
+    if(count == 20 || regex.test(inputMessage)) {
 
-      let lastRate = getRateFromResponse(response, rate, setRate)
+      //Volver a poner las lineas de aabajo comentadas para que funcione bien
+      //let lastRate = getRateFromResponse(response, rate, setRate)
+      //let finalResponse = await fetchResponse(data, "results", lastRate !== "No me dio calificacion" ? rate + lastRate : rate);
       
+      let finalResponse = await fetchResponse(data, "results", inputMessage.split(/\D+/)[1]);
 
-      let finalResponse = await fetchResponse(data, "results", lastRate !== "No me dio calificacion" ? rate + lastRate : rate);
       answers.push(`${count+1} | ${data} | ${getRateOnly(response)}`)
       setQuestionnaireInfo(answers)
       console.log(answers)
