@@ -56,8 +56,8 @@ export default async function (req, res) {
 
 function generatePrompt(text, question, total) {
   if (question === "results") {
-    console.log(`Que singifica el puntaje ${total} en el inventario de depresion de beck. Ademas por favor lista muchas recomendaciones para dicho puntaje`)
-    return `Dime que significa el puntaje de ${total} en el inventario de Depresión de beck y dame recomendaciones para dicho puntaje, sin citar el tipo de tratamiento que debo de llevar `;
+    console.log(`Dime que significa el puntaje de ${total} en el inventario de Depresión de Beck-ii y dame recomendaciones para dicho puntaje, sin citar el tipo de tratamiento que debo de llevar `)
+    return `Dime que significa el puntaje de ${total} en el inventario de Depresión de Beck-ii y dame recomendaciones para dicho puntaje, sin citar el tipo de tratamiento que debo de llevar `;
   }
 
   if (question === 0) {
