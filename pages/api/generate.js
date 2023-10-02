@@ -56,8 +56,30 @@ export default async function (req, res) {
 
 function generatePrompt(text, question, total) {
   if (question === "results") {
-    console.log(`Dime que significa el puntaje de ${total} en el inventario de Depresión de Beck-ii y dame recomendaciones para dicho puntaje, sin citar el tipo de tratamiento que debo de llevar `)
-    return `Dime que significa el puntaje de ${total} en el inventario de Depresión de Beck-ii y dame recomendaciones para dicho puntaje, sin citar el tipo de tratamiento que debo de llevar `;
+    if (total === 0) {
+      return `Dime que no tengo depresion y que estas muy contenta conmigo ${total} y no se necesitan recomendaciones porque tengo una vida plena`;
+    } else if (total > 0 && total <= 13) {
+      console.log(
+        `Tu puntaje de ${total} en el inventario de Depresión de Beck-ii indica que tienes una depresion minima, dame recomendaciones para una depresion minima`
+      );
+      return `Dime que tengo una depresión minima con mi puntaje obtenido de ${total} de acuerdo al inventario de depresión de beck-ii y dame recomendaciones para mi depresión minima `;
+    } else if (total > 14 && total <= 19) {
+      console.log(
+        `Tu puntaje de ${total} en el inventario de Depresión de Beck-ii indica que tienes una depresion leve, dame recomendaciones para una depresion leve`
+      );
+      return `Dime que tengo una depresión leve con mi puntaje obtenido de ${total} de acuerdo al inventario de depresión de beck-ii y dame recomendaciones para mi depresión leve `;
+    } else if (total >= 20 && total <= 28) {
+      console.log(
+        `Tu puntaje de ${total} en el inventario de Depresión de Beck-ii indica que tienes una depresion moderada, dame recomendaciones para una depresion moderada`
+      );
+      return `Dime que tengo una depresión moderada con mi puntaje obtenido de ${total} de acuerdo al inventario de depresión de beck-ii y dame recomendaciones para mi depresión moderada `;
+    } else {
+      console.log(
+        `Tu puntaje de ${total} en el inventario de Depresión de Beck-ii indica que tienes una depresion grave, dame recomendaciones para una depresion grave`
+      );
+      return `Dime que tengo una depresión grave con mi puntaje obtenido de ${total} de acuerdo al inventario de depresión de beck-ii y dame recomendaciones para mi depresión grave `;
+    }
+    //return `Dime que significa el puntaje de ${total} en el inventario de Depresión de Beck-ii y dame recomendaciones para dicho puntaje, sin citar el tipo de tratamiento que debo de llevar `;
   }
 
   if (question === 0) {
