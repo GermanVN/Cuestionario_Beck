@@ -63,7 +63,7 @@ function generatePrompt(text, question, total) {
         `Tu puntaje de ${total} en el inventario de Depresión de Beck-ii indica que tienes una depresion minima, dame recomendaciones para una depresion minima`
       );
       return `Dime que tengo una depresión minima con mi puntaje obtenido de ${total} de acuerdo al inventario de depresión de beck-ii y dame recomendaciones para mi depresión minima `;
-    } else if (total > 14 && total <= 19) {
+    } else if (total >= 14 && total <= 19) {
       console.log(
         `Tu puntaje de ${total} en el inventario de Depresión de Beck-ii indica que tienes una depresion leve, dame recomendaciones para una depresion leve`
       );

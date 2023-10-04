@@ -55,6 +55,40 @@ const Chat = (props) => {
     }, 2000);
   }, []);
 
+  const sendEmailResults=async (rate, finalResponse)=> {
+
+    console.log("Personal Data")
+    console.log(personalData)
+  
+    const res = await fetch("/api/sendgrid", {
+      body: JSON.stringify({
+        subject: `Inventario de depresión de Beck -${personalData.name}`,
+        email: personalData.email,
+        name: personalData.name,
+        age: personalData.edad,
+        mental: personalData.mental,
+        cronica: personalData.cronica,
+        gender: personalData.sexo,
+        level: personalData.nivel,
+        ocupation: personalData.ocupacion,
+        answers: answers,
+        total: rate,
+        resultado: finalResponse
+  
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+  
+    const { error } = await res.json();
+    if (error) {
+      console.log(error);
+      return;
+    }
+   }
+
 
   //Cuando el usuario mando su respuesta
   const handleSendMessage = async () => {
@@ -80,10 +114,10 @@ const Chat = (props) => {
       console.log(inputMessage)
 
       //Volver a poner las lineas de aabajo comentadas para que funcione bien
-      //let lastRate = getRateFromResponse(response, rate, setRate)
-      //let finalResponse = await fetchResponse(data, "results", lastRate !== "No me dio calificacion" ? rate + lastRate : rate);
+      let lastRate = getRateFromResponse(response, rate, setRate)
+      let finalResponse = await fetchResponse(data, "results", lastRate !== "No me dio calificacion" ? rate + lastRate : rate);
       
-      let finalResponse = await fetchResponse(data, "results", inputMessage.split(/\D+/)[1]);
+      //let finalResponse = await fetchResponse(data, "results", inputMessage.split(/\D+/)[1]);
 
       answers.push(`${count+1} | ${data} | ${getRateOnly(response)}`)
       setQuestionnaireInfo(answers)
@@ -128,6 +162,7 @@ const Chat = (props) => {
           { from: "computer", text: `Le mandaremos los resultados de este cuestionario a su email: ${props.userInfo?.email}`},
         ]);
       }, 4000);
+      sendEmailResults(lastRate !== "No me dio calificacion" ? rate + lastRate : rate,  finalResponse)
 
     }
 

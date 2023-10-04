@@ -130,7 +130,8 @@ const Login = (props) => {
       cronica: enteredCronica,
       sexo: selectedGender,
       educacion: selectedNivel,
-      ocupacion: selectedOcupacion
+      ocupacion: selectedOcupacion,
+      nivel: selectedNivel
 
     })
 
