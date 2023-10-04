@@ -115,6 +115,15 @@ const Chat = (props) => {
 
       //Volver a poner las lineas de aabajo comentadas para que funcione bien
       let lastRate = getRateFromResponse(response, rate, setRate)
+
+      setTimeout(() => {
+
+        setMessages((old) => [
+          ...old,
+          { from: "computer", text: `Gracias ${props.userInfo?.name} por contestar todas las preguntas, estamos procesando sus respuestas para mostrate el resultado, por favor espere` },
+        ]);
+      }, 2000);
+
       let finalResponse = await fetchResponse(data, "results", lastRate !== "No me dio calificacion" ? rate + lastRate : rate);
       
       //let finalResponse = await fetchResponse(data, "results", inputMessage.split(/\D+/)[1]);
@@ -125,13 +134,7 @@ const Chat = (props) => {
 
       console.log("LLEGO AL FINAL");
 
-      setTimeout(() => {
-
-        setMessages((old) => [
-          ...old,
-          { from: "computer", text: `Gracias ${props.userInfo?.name} por contestar todas las preguntas el resultado de este analisis es el siguiente` },
-        ]);
-      }, 2000);
+      
 
       setTimeout(() => {
         if (!initial) {
@@ -161,7 +164,7 @@ const Chat = (props) => {
           ...old,
           { from: "computer", text: `Le mandaremos los resultados de este cuestionario a su email: ${props.userInfo?.email}`},
         ]);
-      }, 4000);
+      }, 8000);
       sendEmailResults(lastRate !== "No me dio calificacion" ? rate + lastRate : rate,  finalResponse)
 
     }
