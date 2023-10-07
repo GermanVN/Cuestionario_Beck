@@ -12,9 +12,7 @@ import {
 } from "../../utils/utils";
 
 let count = 0;
-let answers = []
-
-
+let answers = [];
 
 const Chat = (props) => {
   const [messages, setMessages] = useState([]);
@@ -22,11 +20,11 @@ const Chat = (props) => {
   const [initial, setInitial] = useState(true);
   const [inputMessage, setInputMessage] = useState("");
   const [personalData, setPersonalData] = useState({});
-  const [questionnaireInfo, setQuestionnaireInfo] = useState([])
+  const [completed, setCompleted] = useState(false)
+  const [questionnaireInfo, setQuestionnaireInfo] = useState([]);
 
   useEffect(() => {
-
-    setPersonalData(props.userInfo)
+    setPersonalData(props.userInfo);
 
     setTimeout(() => {
       var utterance = new window.SpeechSynthesisUtterance();
@@ -34,32 +32,43 @@ const Chat = (props) => {
       utterance.volume = 4.0;
       utterance.rate = 0.8;
       utterance.pitch = 1.0;
-      utterance.text = "Buenos días vamos a empezar con nuestra sesión";
+      utterance.text = `Hola ${props.userInfo.name} vamos a empezar con nuestra sesión`;
 
-      speechSynthesis.speak(utterance);
+      //speechSynthesis.speak(utterance);
 
       setMessages((old) => [
         ...old,
         {
           from: "computer",
-          text: "Buenos días vamos a empezar con nuestra sesión",
+          text: `Hola ${props.userInfo.name} vamos a empezar con nuestra sesión`,
         },
       ]);
       setMessages((old) => [
         ...old,
         {
           from: "computer",
-          text: "Si estas de acuerdo te haré unas preguntas para entender un poco más acerca de como te sientes, te recomiendo contestar con lo que mejor describa el modo de como te has sentido en los últimas dos semanas incluyendo el día de hoy",
+          text: "Si estas de acuerdo te haré unas preguntas para entender un poco más acerca de como te sientes, te recomiendo contestar con lo que mejor describa el modo de como te has sentido en los últimas dos semanas, incluyendo el día de hoy",
         },
       ]);
     }, 2000);
   }, []);
 
-  const sendEmailResults=async (rate, finalResponse)=> {
+  const handleFinish = ()=> {
+    console.log("FIN")
+    setMessages((old) => [
+      ...old,
+      {
+        from: "computer",
+        text: `Ya terminó nuestra sesión, gracias por participar ya puedes cerrar esta ventana`,
+      },
+    ]);
 
-    console.log("Personal Data")
-    console.log(personalData)
-  
+  }
+
+  const sendEmailResults = async (rate, finalResponse) => {
+    console.log("Personal Data");
+    console.log(personalData);
+
     const res = await fetch("/api/sendgrid", {
       body: JSON.stringify({
         subject: `Inventario de depresión de Beck -${personalData.name}`,
@@ -73,22 +82,51 @@ const Chat = (props) => {
         ocupation: personalData.ocupacion,
         answers: answers,
         total: rate,
-        resultado: finalResponse
-  
+        resultado: finalResponse,
       }),
       headers: {
         "Content-Type": "application/json",
       },
       method: "POST",
     });
-  
+
     const { error } = await res.json();
     if (error) {
       console.log(error);
       return;
     }
-   }
+  };
 
+  const sendEmailResultsPatient = async (rate, finalResponse) => {
+    console.log("Personal Data");
+    console.log(personalData);
+
+    const res = await fetch("/api/sendgrid2", {
+      body: JSON.stringify({
+        subject: `Inventario de depresión de Beck -${personalData.name}`,
+        email: personalData.email,
+        name: personalData.name,
+        age: personalData.edad,
+        mental: personalData.mental,
+        cronica: personalData.cronica,
+        gender: personalData.sexo,
+        level: personalData.nivel,
+        ocupation: personalData.ocupacion,
+        total: rate,
+        resultado: finalResponse,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    const { error } = await res.json();
+    if (error) {
+      console.log(error);
+      return;
+    }
+  };
 
   //Cuando el usuario mando su respuesta
   const handleSendMessage = async () => {
@@ -101,40 +139,41 @@ const Chat = (props) => {
 
     const response = await fetchResponse(data, count);
 
-
     console.log("CONTADOR", count);
 
     const regex = /almatonta\d+/;
-    
 
     // Cuando Termina el cuestionario
-    if(count == 20 || regex.test(inputMessage)) {
-
-      console.log("Resultado FInal")
-      console.log(inputMessage)
+    if (count == 20 || regex.test(inputMessage)) {
+      console.log("Resultado FInal");
+      console.log(inputMessage);
 
       //Volver a poner las lineas de aabajo comentadas para que funcione bien
-      let lastRate = getRateFromResponse(response, rate, setRate)
+      let lastRate = getRateFromResponse(response, rate, setRate);
 
       setTimeout(() => {
-
         setMessages((old) => [
           ...old,
-          { from: "computer", text: `Gracias ${props.userInfo?.name} por contestar todas las preguntas, estamos procesando sus respuestas para mostrate el resultado, por favor espere` },
+          {
+            from: "computer",
+            text: `Gracias ${props.userInfo?.name} por contestar todas las preguntas, estamos procesando sus respuestas para mostrate el resultado, por favor espere. Toma en cuenta que esta es solo una evaluación preliminar y no refleja una evaluación completa. Como se te indicó, favor de contestar los otros cuestionarios que se te mandarán. Para una evaluación más certera`,
+          },
         ]);
       }, 2000);
 
-      let finalResponse = await fetchResponse(data, "results", lastRate !== "No me dio calificacion" ? rate + lastRate : rate);
-      
+      let finalResponse = await fetchResponse(
+        data,
+        "results",
+        lastRate !== "No me dio calificacion" ? rate + lastRate : rate
+      );
+
       //let finalResponse = await fetchResponse(data, "results", inputMessage.split(/\D+/)[1]);
 
-      answers.push(`${count+1} | ${data} | ${getRateOnly(response)}`)
-      setQuestionnaireInfo(answers)
-      console.log(answers)
+      answers.push(`${count + 1} | ${data} | ${getRateOnly(response)}`);
+      setQuestionnaireInfo(answers);
+      console.log(answers);
 
       console.log("LLEGO AL FINAL");
-
-      
 
       setTimeout(() => {
         if (!initial) {
@@ -147,7 +186,7 @@ const Chat = (props) => {
 
         setMessages((old) => [
           ...old,
-          { from: "computer", text: finalResponse},
+          { from: "computer", text: finalResponse },
         ]);
       }, 4000);
 
@@ -162,22 +201,33 @@ const Chat = (props) => {
 
         setMessages((old) => [
           ...old,
-          { from: "computer", text: `Le mandaremos los resultados de este cuestionario a su email: ${props.userInfo?.email}`},
+          {
+            from: "computer",
+            text: `Te hemos mandado los resultados al email que ingresaste: ${props.userInfo?.email}.`,
+          },
         ]);
       }, 8000);
-      sendEmailResults(lastRate !== "No me dio calificacion" ? rate + lastRate : rate,  finalResponse)
-
+      sendEmailResults(
+        lastRate !== "No me dio calificacion" ? rate + lastRate : rate,
+        finalResponse
+      );
+      sendEmailResultsPatient(
+        lastRate !== "No me dio calificacion" ? rate + lastRate : rate,
+        finalResponse
+      );
+      setCompleted(true)
     }
 
     //Cuando todavia no termina el cuestionario y si le dio calificacion
 
     if (
-      count < 20 && getRateFromResponse(response, rate, setRate) !== "No me dio calificacion"
+      count < 20 &&
+      getRateFromResponse(response, rate, setRate) !== "No me dio calificacion"
     ) {
       console.log("SI TENGO CALIFICACION");
 
-      answers.push(`${count+1} | ${data} | ${getRateOnly(response)}`)
-      console.log(answers)
+      answers.push(`${count + 1} | ${data} | ${getRateOnly(response)}`);
+      console.log(answers);
 
       setTimeout(() => {
         //startSpeak(cleanBotAnswer(response))
@@ -199,7 +249,7 @@ const Chat = (props) => {
 
         setMessages((old) => [
           ...old,
-          { from: "computer", text: getQuestions(count)},
+          { from: "computer", text: getQuestions(count) },
         ]);
       }, 2000);
     }
@@ -207,7 +257,8 @@ const Chat = (props) => {
     //Cuando todavia no termina el cuestionario y no le dio calificacion
 
     if (
-      count < 20 && getRateFromResponse(response, rate, setRate) === "No me dio calificacion"
+      count < 20 &&
+      getRateFromResponse(response, rate, setRate) === "No me dio calificacion"
     ) {
       console.log("NO TENGO CALIFICACION");
       setTimeout(() => {
@@ -223,7 +274,6 @@ const Chat = (props) => {
       }, 2000);
 
       setTimeout(() => {
-        
         if (!initial) {
         }
 
@@ -242,14 +292,14 @@ const Chat = (props) => {
   return (
     <Flex w="100%" h="100vh" justify="center" align="center">
       <Flex w={["100%", "100%", "40%"]} h="90%" flexDir="column">
-        <Header name = {props.userInfo?.name}/>
+        <Header name={props.userInfo?.name} />
         <Divider />
         <Messages messages={messages} />
         <Divider />
         <Footer
           inputMessage={inputMessage}
           setInputMessage={setInputMessage}
-          handleSendMessage={handleSendMessage}
+          handleSendMessage={!completed ? handleSendMessage: handleFinish}
         />
       </Flex>
     </Flex>

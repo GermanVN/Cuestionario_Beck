@@ -169,7 +169,7 @@ const Login = (props) => {
               nameIsValid === false ? classes.invalid : ""
             }`}
           >
-            <label htmlFor="name">Nombre</label>
+            <label htmlFor="name">Nombre Completo</label>
             <input
               type="name"
               id="name"

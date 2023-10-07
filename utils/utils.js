@@ -7,7 +7,7 @@ export const getQuestions = (count) => {
     "¿Cómo describirías el nivel de culpabilidad que sientes?",
     "Describe si sientes que estas siendo castigado o que mereces ser castigado",
     "¿Qué nivel de confianza o disconformidad tienes acerca de ti mismo?",
-    "Como describirías la frecuencia de critica o culpabilidad hacia ti mismo",
+    "Como describirías la frecuencia de critica hacia ti mismo",
     "Describe si has tenido pensamientos o deseos suicidas",
     "Describe si has experimentado cambios en la frecuencia o intensidad del llanto",
     "Describe si has notado un aumento en la agitación o inquietud que has experimentado",
@@ -67,3 +67,4 @@ export const cleanBotAnswer = (response) => {
 
   return response;
 };
+
