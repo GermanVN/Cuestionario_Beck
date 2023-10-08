@@ -1,13 +1,13 @@
 .login {
     width: 90%;
-    max-width: 60rem;
+    max-width: 50rem;
     margin: 2rem auto;
     padding: 2rem;
   }
   
   .control {
     margin: 1rem 0;
-    display: flex;
+
     align-items: stretch;
     flex-direction: column;
   }
@@ -31,6 +31,7 @@
     padding: 0.35rem 0.35rem;
     border-radius: 6px;
     border: 1px solid #ccc;
+    width: 100%
   }
   
   .control input:focus {
@@ -94,7 +95,7 @@
  .scroll {
     margin:4px, 4px;
     padding:4px;
-    width: 900px;
+    width: 740px;
     height: 110px;
     overflow-x: hidden;
     overflow-y: auto;

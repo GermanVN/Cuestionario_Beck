@@ -204,6 +204,7 @@ const Login = (props) => {
               value={enteredMental}
               onChange={mentalChangeHandler}
               onBlur={validateMentalHandler}
+              width={"100%"}
             />
           </div>
           <div
