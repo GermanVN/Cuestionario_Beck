@@ -2,7 +2,12 @@
     width: 90%;
     max-width: 50rem;
     margin: 2rem auto;
-    padding: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    padding-top: 1rem;
+
+    
   }
   
   .control {

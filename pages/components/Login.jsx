@@ -6,6 +6,7 @@ import Button from "./UI/Button/Button";
 
 let isEmailValid = false;
 let isNameValid = false;
+let isApeidoValid = false;
 let isMentalValid = false;
 let isCronicaValid = false;
 let isAgeValid = false;
@@ -14,6 +15,7 @@ let isCheckValid = false;
 const Login = (props) => {
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredName, setEnteredName] = useState("");
+  const [enteredApeido, setEnteredApeido] = useState("");
   const [enteredMental, setEnteredMental] = useState("");
   const [enteredCronica, setEnteredCronica] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
@@ -21,6 +23,7 @@ const Login = (props) => {
 
   const [emailIsValid, setEmailIsValid] = useState(false);
   const [nameIsValid, setNameIsValid] = useState(false);
+  const [apeidoIsValid, setApeidoIsValid] = useState(false);
   const [ageIsValid, setAgeIsValid] = useState(false);
   const [mentalIsValid, setMentalIsValid] = useState(false);
   const [cronicaIsValid, setCronicaIsValid] = useState(false);
@@ -30,34 +33,21 @@ const Login = (props) => {
   const [selectedOcupacion, setSelectedOcupacion] = useState("estudiante");
   const [isCheckedValid, setIsCheckedValid] = useState(false);
 
-
-
   const handleSelectGender = (event) => {
-   
     setSelectedGender(event.target.value);
-
-
   };
 
   const handleSelectNivel = (event) => {
-
     setSelectedNivel(event.target.value);
-
-
   };
 
   const handleSelectOcupacion = (event) => {
     setSelectedOcupacion(event.target.value);
-
-
   };
-
 
   const emailChangeHandler = (event) => {
     isEmailValid = enteredEmail.includes("@");
     setEnteredEmail(event.target.value);
-
-
   };
 
   const ageChangeHandler = (event) => {
@@ -67,8 +57,13 @@ const Login = (props) => {
   };
 
   const nameChangeHandler = (event) => {
-    isNameValid = enteredName.trim().length > 3;
+    isNameValid = enteredName.trim().length > 2;
     setEnteredName(event.target.value);
+  };
+
+  const apeidoChangeHandler = (event) => {
+    isApeidoValid = enteredApeido.trim().length > 4;
+    setEnteredApeido(event.target.value);
   };
 
   const mentalChangeHandler = (event) => {
@@ -87,7 +82,6 @@ const Login = (props) => {
     setIsChecked(event.target.checked);
   };
 
-
   const validateEmailHandler = () => {
     setEmailIsValid(enteredEmail.includes("@"));
     isEmailValid = true;
@@ -96,6 +90,11 @@ const Login = (props) => {
   const validateNamedHandler = () => {
     setNameIsValid(enteredName.trim().length > 3);
     isNameValid = true;
+  };
+
+  const validateApeidodHandler = () => {
+    setApeidoIsValid(enteredApeido.trim().length > 4);
+    isApeidoValid = true;
   };
 
   const validateMentalHandler = () => {
@@ -125,15 +124,15 @@ const Login = (props) => {
     props.getLoginInformation({
       email: enteredEmail,
       name: enteredName,
+      apeido: enteredApeido,
       edad: enteredAge,
       mental: enteredMental,
       cronica: enteredCronica,
       sexo: selectedGender,
       educacion: selectedNivel,
       ocupacion: selectedOcupacion,
-      nivel: selectedNivel
-
-    })
+      nivel: selectedNivel,
+    });
 
     console.log("values");
     console.log(enteredEmail);
@@ -145,7 +144,7 @@ const Login = (props) => {
   return (
     <div
       style={{
-        paddingTop: "50px",
+        paddingTop: "0px",
       }}
     >
       <Card className={classes.login}>
@@ -155,8 +154,18 @@ const Login = (props) => {
               emailIsValid === false ? classes.invalid : ""
             }`}
           >
-            <label htmlFor="email">E-Mail</label>
+            <label
+              style={{
+                fontSize: "14px",
+              }}
+              htmlFor="email"
+            >
+              E-Mail
+            </label>
             <input
+              style={{
+                fontSize: "14px",
+              }}
               type="email"
               id="email"
               value={enteredEmail}
@@ -169,9 +178,19 @@ const Login = (props) => {
               nameIsValid === false ? classes.invalid : ""
             }`}
           >
-            <label htmlFor="name">Nombre Completo</label>
+            <label
+              style={{
+                fontSize: "14px",
+              }}
+              htmlFor="name"
+            >
+              Nombre
+            </label>
             <input
               type="name"
+              style={{
+                fontSize: "14px",
+              }}
               id="name"
               value={enteredName}
               onChange={nameChangeHandler}
@@ -180,12 +199,46 @@ const Login = (props) => {
           </div>
           <div
             className={`${classes.control} ${
+              apeidoIsValid === false ? classes.invalid : ""
+            }`}
+          >
+            <label
+              style={{
+                fontSize: "14px",
+              }}
+              htmlFor="apeido"
+            >
+              Apeido
+            </label>
+            <input
+              style={{
+                fontSize: "14px",
+              }}
+              type="apeido"
+              id="apeido"
+              value={enteredApeido}
+              onChange={apeidoChangeHandler}
+              onBlur={validateApeidodHandler}
+            />
+          </div>
+          <div
+            className={`${classes.control} ${
               ageIsValid === false ? classes.invalid : ""
             }`}
           >
-            <label htmlFor="name">Edad</label>
+            <label
+              style={{
+                fontSize: "14px",
+              }}
+              htmlFor="name"
+            >
+              Edad
+            </label>
             <input
               type="name"
+              style={{
+                fontSize: "14px",
+              }}
               id="edad"
               value={enteredAge}
               onChange={ageChangeHandler}
@@ -197,9 +250,20 @@ const Login = (props) => {
               mentalIsValid === false ? classes.invalid : ""
             }`}
           >
-            <label htmlFor="mental">¿Tiene algún diagnóstico mental o neurológico? Favor de especificar</label>
+            <label
+              style={{
+                fontSize: "14px",
+              }}
+              htmlFor="mental"
+            >
+              ¿Tiene algún diagnóstico mental o neurológico? Favor de
+              especificar
+            </label>
             <input
               type="mental"
+              style={{
+                fontSize: "14px",
+              }}
               id="mental"
               value={enteredMental}
               onChange={mentalChangeHandler}
@@ -212,8 +276,18 @@ const Login = (props) => {
               cronicaIsValid === false ? classes.invalid : ""
             }`}
           >
-            <label htmlFor="cronica">¿Tiene alguna enfermedad crónica? Favor de especificar</label>
+            <label
+              style={{
+                fontSize: "14px",
+              }}
+              htmlFor="cronica"
+            >
+              ¿Tiene alguna enfermedad crónica? Favor de especificar
+            </label>
             <input
+              style={{
+                fontSize: "14px",
+              }}
               type="cronica"
               id="cronica"
               value={enteredCronica}
@@ -226,15 +300,39 @@ const Login = (props) => {
               passwordIsValid === false ? classes.invalid : ""
             }`}
           >
-            <label htmlFor="cars">Sexo:</label>
+            <label
+              style={{
+                fontSize: "14px",
+              }}
+              htmlFor="cars"
+            >
+              Sexo:
+            </label>
             <select
+              style={{
+                fontSize: "14px",
+              }}
               name="gender"
               id="gender"
               value={selectedGender}
               onChange={handleSelectGender}
             >
-              <option value="hombre">Masculino</option>
-              <option value="mujer">Femenino</option>
+              <option
+                style={{
+                  fontSize: "14px",
+                }}
+                value="hombre"
+              >
+                Masculino
+              </option>
+              <option
+                style={{
+                  fontSize: "14px",
+                }}
+                value="mujer"
+              >
+                Femenino
+              </option>
             </select>
           </div>
           <div
@@ -242,8 +340,18 @@ const Login = (props) => {
               passwordIsValid === false ? classes.invalid : ""
             }`}
           >
-            <label htmlFor="cars">Nivel de educación:</label>
+            <label
+              style={{
+                fontSize: "14px",
+              }}
+              htmlFor="cars"
+            >
+              Nivel de educación:
+            </label>
             <select
+              style={{
+                fontSize: "14px",
+              }}
               name="nivel"
               id="nivel"
               value={selectedNivel}
@@ -261,8 +369,18 @@ const Login = (props) => {
               passwordIsValid === false ? classes.invalid : ""
             }`}
           >
-            <label htmlFor="cars">Ocupación:</label>
+            <label
+              style={{
+                fontSize: "14px",
+              }}
+              htmlFor="cars"
+            >
+              Ocupación:
+            </label>
             <select
+              style={{
+                fontSize: "14px",
+              }}
               name="ocupacion"
               id="ocupacion"
               value={selectedOcupacion}
@@ -276,15 +394,16 @@ const Login = (props) => {
               <option value="jubilado">Jubilado</option>
               <option value="desempleado">Desempleado</option>
               <option value="freelancer">Freelancer</option>
-
             </select>
           </div>
-        
+
           <div className={classes.actions}>
             {console.log(
               isEmailValid && isNameValid && isAgeValid && isCheckValid
             )}
-            <div className={classes.scroll}>
+            <div   style={{
+              fontSize: "14px"
+            }} className={classes.scroll}>
               Se le está invitando a participar de manera voluntaria en una
               evaluación psicológica para la detección de la depresión por medio
               de herramientas electrónicas, elaboradas por la estudiante en
@@ -315,11 +434,10 @@ const Login = (props) => {
               en el resto de los cuestionarios que se le proporcionarán al
               finalizar esta evaluación, utilizando el mismo nombre y correo
               electrónico. Costos: Este proceso no tendrá ningún costo para
-              usted, y tampoco se le proporcionará remuneración económica. 
+              usted, y tampoco se le proporcionará remuneración económica.
               <br></br>
               <br></br>
-              Al
-              dar click en esta casilla acepta que ha leído el presente
+              Al dar click en esta casilla acepta que ha leído el presente
               documento de consentimiento informado, ha comprendido las
               explicaciones en él facilitadas sobre el propósito de la
               evaluación psicológica. También se me ha informado sobre el
@@ -349,7 +467,15 @@ const Login = (props) => {
               type="submit"
               className={classes.btn}
               disabled={
-                !(isEmailValid && isNameValid && isAgeValid && isCheckValid && isMentalValid && isCronicaValid)
+                !(
+                  isEmailValid &&
+                  isNameValid &&
+                  isAgeValid &&
+                  isCheckValid &&
+                  isMentalValid &&
+                  isCronicaValid &&
+                  isApeidoValid
+                )
               }
             >
               Comenzar

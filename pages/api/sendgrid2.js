@@ -34,6 +34,7 @@ console.log(process.env.SENDGRID_API_KEY)
               <div class="container" style="margin-left: 20px;margin-right: 20px;">
               <h3>Informacion Personal </h3>
               <div>Nombre: ${req.body.name} </div>
+              <div>Nombre: ${req.body.apeido} </div>
               <div>Email: ${req.body.email} </div>
               <div>Edad: ${req.body.age} </div>
               <div>Diagnostico Mental: ${req.body.mental} </div>
