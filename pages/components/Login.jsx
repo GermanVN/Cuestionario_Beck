@@ -208,7 +208,7 @@ const Login = (props) => {
               }}
               htmlFor="apeido"
             >
-              Apeido
+              Apellido
             </label>
             <input
               style={{
