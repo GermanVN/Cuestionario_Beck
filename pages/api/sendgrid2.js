@@ -40,12 +40,12 @@ async function sendEmail(req, res) {
               <div>Sexo: ${req.body.gender} </div>
               <div>Nivel de educacion: ${req.body.level} </div>
               <div>Ocupacion: ${req.body.ocupation} </div>
-              <p>----------------------------------------------------------------</p>
+              <p></p>
 
               <div style="font-size: 13px;">
               <h3>Resultados</h3>
-              <div>Total: ${req.body.resultado} </div>
-              <p>----------------------------------------------------------------</p>
+              <div>${req.body.resultado} </div>
+              <p></p>
 
               <div style="font-size: 13px;">
               <h3>Siguientes Pasos</h3>
@@ -61,7 +61,7 @@ async function sendEmail(req, res) {
                 <li><a href="https://www.ejemplo.com">Inventario de Depresión de Beck</a></li>
                 <li><a href="https://www.ejemplo.com">Cuestionario de Salud del Paciente-9</a></li>
               </ul>
-              <p>----------------------------------------------------------------</p>
+              <p></p>
               <br>
               </div>
           
