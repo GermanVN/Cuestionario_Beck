@@ -404,46 +404,43 @@ const Login = (props) => {
             <div   style={{
               fontSize: "14px"
             }} className={classes.scroll}>
-              Se le está invitando a participar de manera voluntaria en una
-              evaluación psicológica para la detección de la depresión por medio
-              de herramientas electrónicas, elaboradas por la estudiante en
-              psicología Alma Elena Mejia Torres (contacto
-              414144125@iztacala.unam.mx), supervisada por el Mtro. Alan Ernesto
-              Barba Sánchez, profesor de la FES Iztacala UNAM en su función como
-              Director de Tesis para obtener el grado de Psicóloga. Contacto:
-              alan.barba@iztacala.unam.mx Procedimiento: El presente chat tiene
-              como objetivo la evaluación de la depresión por medio del
-              instrumento: Inventario de Depresión de Beck-II. El procedimiento
-              consiste en llevar a cabo una evaluación psicológica por medio de
-              preguntas guiadas por este chat, lo cual implica recabar datos
-              sociodemográficos además de contestar las preguntas que el chat le
-              arrojará. Al finalizar se le darán los resultados de su evaluación
-              y se harán recomendaciones de acuerdo a sus resultados. El tiempo
-              estimado será de 15 min aproximadamente. Criterios de inclusión:
-              Persona mayor de 13 años de edad Posibles riesgos y molestias: No
-              existe riesgo alguno para usted Privacidad y confidencialidad:
-              Toda la información que usted nos proporcione será almacenada y
-              tratada con carácter confidencial, con uso académico y el de su
-              bienestar psicológico. Si bien las respuestas dadas implican
-              riesgos a la confidencialidad, los asesores se comprometen a
-              prevenir riesgos cibernéticos para el almacenamiento y manejo de
-              la información que nos proporcione. Retiro: Su participación
-              dentro de la evaluación psicológica es voluntaria y puede
-              abandonar el proceso en cualquier momento bajo previo aviso. Le
-              suplicamos comunicarse con su asesor, y confirmar su participación
-              en el resto de los cuestionarios que se le proporcionarán al
-              finalizar esta evaluación, utilizando el mismo nombre y correo
-              electrónico. Costos: Este proceso no tendrá ningún costo para
-              usted, y tampoco se le proporcionará remuneración económica.
+              Se le está invitando a participar de manera voluntaria en una evaluación psicológica para la detección de la depresión por medio de herramientas digitalizadas, elaboradas por la estudiante en psicología Alma Elena Mejia Torres (contacto 414144125@iztacala.unam.mx), supervisada por el Mtro. Alan Ernesto Barba Sánchez (Contacto: alan.barba@iztacala.unam.mx), profesor de la FES Iztacala UNAM.
               <br></br>
               <br></br>
-              Al dar click en esta casilla acepta que ha leído el presente
-              documento de consentimiento informado, ha comprendido las
-              explicaciones en él facilitadas sobre el propósito de la
-              evaluación psicológica. También se me ha informado sobre el
-              procedimiento, así como la manera en que se le trataran los datos.
-              Comprende que, en cualquier momento y sin necesidad de dar ninguna
-              explicación, puede revocar el consentimiento que ahora presenta.
+              Procedimiento: El presente chat tiene como objetivo la recopilación de respuestas de una versión del instrumento "Inventario de Depresión de Beck-II" basado en Inteligencia Artifical para evaluar las propiedades psicométricas de dicho instrumento.
+              <br></br>
+              <br></br>
+              El procedimiento consiste en llevar a cabo una recopilación de un autoinforme de respuestas relacionadas con síntomas que suelen presentarse en personas con depresión, por medio de preguntas guiadas en este chat. Esto implica recabar datos sociodemográficos además de contestar las preguntas que el chat le arrojará y posteriormente contestar otros dos cuestionarios dentro de un formulario que le serán enviados automáticamente a su correo electrónico proporcionado al finalizar este chat, y los deberá de contestar preferentemente de manera inmediata.
+              <br></br>
+              <br></br>
+              Al finalizar automáticamente le arrojará retroalimentación con recomendaciones, mismos que serán enviados a su correo electrónico proporcionado. Una vez que se obtengan los resultados del formulario se le enviarán los resultados obtenidos y algunas recomendaciones de acuerdo a sus respuestas.
+              <br></br>
+              <br></br>
+              El tiempo estimado para este chat será de 20 min aproximadamente. Y el tiempo para contestar los formularios será de otros 15 minutos.
+              <br></br>
+              <br></br>
+              Criterios de inclusión: Personas de 18 años en adelante y menores de 65 años.
+              <br></br>
+              <br></br>
+              Posibles riesgos y molestias: No existe riesgo alguno para usted
+              <br></br>
+              <br></br>
+              Privacidad y confidencialidad: Toda la información que usted nos proporcione será almacenada y tratada con carácter confidencial. Los datos recopilados se utilizarán únicamente con el propósito de investigación en propiedades psicométricas del Inventario de Depresión de Beck-II. En todos los casos los datos que nos proporciones, se mantendrán de manera anónima para proteger la privacidad de los participantes.
+              <br></br>
+              <br></br>
+              Todos los datos proporcionados se mantendrán en un entorno seguro y se protegerán con medidas de seguridad adecuadas para prevenir el acceso no autorizado.
+              <br></br>
+              <br></br>
+              Retiro: Su participación dentro de la evaluación psicológica es voluntaria y puede abandonar el proceso en cualquier momento bajo previo aviso sin ninguna repercusión.
+              <br></br>
+              <br></br>
+              En caso de dudas ponerse en contacto por los medios proporcionados aquí. (crear nuevo)
+              <br></br>
+              <br></br>
+              Costos: Este proceso no tendrá ningún costo para usted, y tampoco se le proporcionará remuneración económica.
+              <br></br>
+              <br></br>
+              Al dar click en esta casilla acepta que ha leído el presente consentimiento informado, ha comprendido las explicaciones en él facilitadas sobre el propósito de la investigación. También se le ha informado sobre el procedimiento, así como la manera en que se trataran sus resultados y datos personales. Comprende que, en cualquier momento y sin necesidad de dar ninguna explicación, puede revocar el consentimiento que ahora presenta.
             </div>
             <div
               style={{

@@ -9,7 +9,7 @@ const Header = (props) => {
       </Avatar>
       <Flex flexDirection="column" mx="5" justify="center">
         <Text fontSize="lg" fontWeight="bold">
-          {props.name}
+          {props.name} {props.apeido}
         </Text>
         <Text color="green.500">Online</Text>
       </Flex>

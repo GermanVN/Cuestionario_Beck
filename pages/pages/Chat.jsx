@@ -59,7 +59,7 @@ const Chat = (props) => {
       ...old,
       {
         from: "computer",
-        text: `Ya terminó nuestra sesión, gracias por participar ya puedes cerrar esta ventana`,
+        text: `Ya terminó nuestra sesión, gracias por contestar las preguntas. Para los siguientes pasos favor de consultar tu correo. Ya puedes cerrar esta ventana.`,
       },
     ]);
 
@@ -158,7 +158,7 @@ const Chat = (props) => {
           ...old,
           {
             from: "computer",
-            text: `Gracias ${props.userInfo?.name} por contestar todas las preguntas, estamos procesando sus respuestas para mostrate el resultado, por favor espere. Toma en cuenta que esta es solo una evaluación preliminar y no refleja una evaluación completa. Como se te indicó, favor de contestar los otros cuestionarios que se te mandarán. Para una evaluación más certera`,
+            text: `Gracias ${props.userInfo?.name} por contestar todas las preguntas, estamos procesando tus respuestas, por favor espera. Toma en cuenta que los resultados que se te muestran aquí son preliminares y no reflejan una evaluación completa. Tus resultados finales, junto con unas recomendaciones de acuerdo a tus puntajes, se te compartirán por correo una vez que completes los otros cuestionarios a través de los links que se te mandarán al correo que proporcionaste.`,
           },
         ]);
       }, 2000);
@@ -190,7 +190,7 @@ const Chat = (props) => {
           ...old,
           { from: "computer", text: finalResponse },
         ]);
-      }, 4000);
+      }, 8000);
 
       setTimeout(() => {
         if (!initial) {
@@ -208,7 +208,7 @@ const Chat = (props) => {
             text: `Te hemos mandado los resultados al email que ingresaste: ${props.userInfo?.email}.`,
           },
         ]);
-      }, 8000);
+      }, 12000);
       sendEmailResults(
         lastRate !== "No me dio calificacion" ? rate + lastRate : rate,
         finalResponse
@@ -294,7 +294,7 @@ const Chat = (props) => {
   return (
     <Flex w="100%" h="100vh" justify="center" align="center">
       <Flex w={["100%", "100%", "40%"]} h="90%" flexDir="column">
-        <Header name={props.userInfo?.name} />
+        <Header name={props.userInfo?.name} apeido={props.userInfo?.apeido}/>
         <Divider />
         <Messages messages={messages} />
         <Divider />

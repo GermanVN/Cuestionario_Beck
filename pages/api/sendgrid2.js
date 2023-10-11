@@ -1,16 +1,14 @@
-const sendgrid = require('@sendgrid/mail')
+const sendgrid = require("@sendgrid/mail");
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
-
 async function sendEmail(req, res) {
-
-  console.log("GERMAN")
-console.log(process.env.SENDGRID_API_KEY)
+  console.log("GERMAN");
+  console.log(process.env.SENDGRID_API_KEY);
 
   try {
     // console.log("REQ.BODY", req.body);
-   await sendgrid.send({
+    await sendgrid.send({
       to: `${req.body.email}`, // Your email where you'll receive emails
       from: "414144125@iztacala.unam.mx", // your website email address here
       subject: `${req.body.subject}`,
@@ -45,27 +43,36 @@ console.log(process.env.SENDGRID_API_KEY)
               <p>----------------------------------------------------------------</p>
 
               <div style="font-size: 13px;">
-              <h3>Puntuacion Total</h3>
-              <div>Total: ${req.body.total} </div>
+              <h3>Resultados</h3>
+              <div>Total: ${req.body.resultado} </div>
               <p>----------------------------------------------------------------</p>
 
               <div style="font-size: 13px;">
-              <h3>Resultado Analisis</h3>
-              <div>Total: ${req.body.resultado} </div>
+              <h3>Siguientes Pasos</h3>
+              <div style="color: red;">
+              Favor de contestar los siguientes formularios preferentemente de manera inmediata. 
+    
+            </div>
+            <div>
+            Una vez que completes los siguientes cuestionarios, se te proporcionarán los resultados obtenidos
+            junto con recomendaciones de acuerdo a tus resultados.
+          </div>              
+              <ul>
+                <li><a href="https://www.ejemplo.com">Inventario de Depresión de Beck</a></li>
+                <li><a href="https://www.ejemplo.com">Cuestionario de Salud del Paciente-9</a></li>
+              </ul>
               <p>----------------------------------------------------------------</p>
               <br>
               </div>
           
-            
               </div>
       </body>
       </html>`,
-
     });
   } catch (error) {
-    console.log("Backend", error)
-    console.log("JSON Stringify")
-    console.log(JSON.stringify(error))
+    console.log("Backend", error);
+    console.log("JSON Stringify");
+    console.log(JSON.stringify(error));
     return res.status(error.statusCode || 500).json({ error: error.message });
   }
 
