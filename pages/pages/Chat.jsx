@@ -231,14 +231,14 @@ const Chat = (props) => {
       answers.push(`${count + 1} | ${data} | ${getRateOnly(response)}`);
       console.log(answers);
 
-      setTimeout(() => {
-        //startSpeak(cleanBotAnswer(response))
+     /* setTimeout(() => {
+
 
         setMessages((old) => [
           ...old,
           { from: "computer", text: getRateOnly(response) },
         ]);
-      }, 1000);
+      }, 1000); */
 
       setTimeout(() => {
         if (!initial) {

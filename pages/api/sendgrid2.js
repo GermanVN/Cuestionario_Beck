@@ -58,8 +58,8 @@ async function sendEmail(req, res) {
             junto con recomendaciones de acuerdo a tus resultados.
           </div>              
               <ul>
-                <li><a href="https://www.ejemplo.com">Inventario de Depresión de Beck</a></li>
-                <li><a href="https://www.ejemplo.com">Cuestionario de Salud del Paciente-9</a></li>
+                <li><a href="https://forms.gle/dcaW82dTxiatpFqf7">Inventario de Depresión de Beck</a></li>
+                <li><a href="https://forms.gle/jwZphsajYdLswiaW7">Cuestionario de Salud del Paciente-9</a></li>
               </ul>
               <p></p>
               <br>
