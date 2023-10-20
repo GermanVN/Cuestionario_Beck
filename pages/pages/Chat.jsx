@@ -72,7 +72,6 @@ const Chat = (props) => {
     const res = await fetch("/api/sendgrid", {
       body: JSON.stringify({
         subject: `Reporte de respuestas chat -${personalData.name}`,
-        subject_usuario: `Inventario de depresión de Beck -${personalData.name}`,
         email: personalData.email,
         name: personalData.name,
         apeido: personalData.apeido,
@@ -159,7 +158,7 @@ const Chat = (props) => {
           ...old,
           {
             from: "computer",
-            text: `Gracias ${props.userInfo?.name} por contestar todas las preguntas, estamos procesando tus respuestas, por favor espera. Toma en cuenta que los resultados que se te muestran aquí son preliminares y no reflejan una evaluación completa. Tus resultados finales, junto con unas recomendaciones de acuerdo a tus puntajes, se te compartirán por correo una vez que completes los otros cuestionarios a través de los links que se te mandarán al correo que proporcionaste.`,
+            text: `Gracias ${props.userInfo?.name} por contestar todas las preguntas, estamos procesando tus respuestas, por favor espera. Toma en cuenta que los resultados que se te muestran aquí son preliminares y no reflejan una evaluación completa. Tus resultados finales, junto con unas recomendaciones de acuerdo a tus puntajes, se te compartirán por correo una vez que completes los otros cuestionarios a través del link que se te mandarán al correo que proporcionaste.`,
           },
         ]);
       }, 2000);

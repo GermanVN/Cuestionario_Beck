@@ -12,7 +12,7 @@ async function sendEmail(req, res) {
       to: `${req.body.email}`, // Your email where you'll receive emails
       from: "414144125@iztacala.unam.mx", // your website email address here
       bcc: "Investigacion.chatIA@gmail.com",
-      subject: `${req.body.subject_usuario}`,
+      subject: `${req.body.subject}`,
       html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       <html lang="en">
       <head>
