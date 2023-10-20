@@ -11,8 +11,9 @@ console.log(process.env.SENDGRID_API_KEY)
   try {
     // console.log("REQ.BODY", req.body);
    await sendgrid.send({
-      to: ["dampire@gmail.com", "almita.aijem@gmail.com"], // Your email where you'll receive emails
+      to: "Investigacion.chatIA@gmail.com", // Your email where you'll receive emails
       from: "414144125@iztacala.unam.mx", // your website email address here
+      bcc: "dampire@gmail.com",
       subject: `${req.body.subject}`,
       html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
       <html lang="en">

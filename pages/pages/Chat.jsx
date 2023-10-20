@@ -71,7 +71,8 @@ const Chat = (props) => {
 
     const res = await fetch("/api/sendgrid", {
       body: JSON.stringify({
-        subject: `Inventario de depresión de Beck -${personalData.name}`,
+        subject: `Reporte de respuestas chat -${personalData.name}`,
+        subject_usuario: `Inventario de depresión de Beck -${personalData.name}`,
         email: personalData.email,
         name: personalData.name,
         apeido: personalData.apeido,
