@@ -109,7 +109,7 @@ const Login = (props) => {
 
   const validateAgeHandler = () => {
     setAgeIsValid(
-      parseInt(enteredAge.trim()) > 13 && parseInt(enteredAge.trim()) < 90
+      parseInt(enteredAge.trim()) > 17 && parseInt(enteredAge.trim()) < 66
     );
     isAgeValid = true;
   };
@@ -404,7 +404,7 @@ const Login = (props) => {
             <div   style={{
               fontSize: "14px"
             }} className={classes.scroll}>
-              Se le está invitando a participar de manera voluntaria en una evaluación psicológica para la detección de la depresión por medio de herramientas digitalizadas, elaboradas por la estudiante en psicología Alma Elena Mejia Torres (contacto 414144125@iztacala.unam.mx), supervisada por el Mtro. Alan Ernesto Barba Sánchez (Contacto: alan.barba@iztacala.unam.mx), profesor de la FES Iztacala UNAM.
+              Se le está invitando a participar de manera voluntaria en una investigación de Validez y Confiabilidad de un Chat impulsado por Generative AI basado en el Inventario de Depresión de Beck-II, elaboradas por la estudiante en psicología Alma Elena Mejia Torres (contacto 414144125@iztacala.unam.mx), supervisada por el Mtro. Alan Ernesto Barba Sánchez (Contacto: alan.barba@iztacala.unam.mx), profesor de la FES Iztacala UNAM.
               <br></br>
               <br></br>
               Procedimiento: El presente chat tiene como objetivo la recopilación de respuestas de una versión del instrumento "Inventario de Depresión de Beck-II" basado en Inteligencia Artifical para evaluar las propiedades psicométricas de dicho instrumento.

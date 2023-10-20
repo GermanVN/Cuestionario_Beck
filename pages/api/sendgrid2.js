@@ -54,12 +54,10 @@ async function sendEmail(req, res) {
     
             </div>
             <div>
-            Una vez que completes los siguientes cuestionarios, se te proporcionarán los resultados obtenidos
-            junto con recomendaciones de acuerdo a tus resultados.
+            Una vez que completes los cuestionarios en el siguiente link. Recibirás los resultados y recomendaciones de tus síntomas de depresión basada en tu interacción con nuestro chat de inteligencia artificial, mismos que serán validados por profesionales de la salud mental antes de ser entregados.
           </div>              
               <ul>
-                <li><a href="https://forms.gle/dcaW82dTxiatpFqf7">Inventario de Depresión de Beck</a></li>
-                <li><a href="https://forms.gle/jwZphsajYdLswiaW7">Cuestionario de Salud del Paciente-9</a></li>
+                <li><a href="https://forms.gle/dcaW82dTxiatpFqf7">Inventario de Depresión de Beck-II y Cuestionario de Salud del Paciente-9</a></li>
               </ul>
               <p></p>
               <br>
