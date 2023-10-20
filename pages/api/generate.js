@@ -83,26 +83,23 @@ function generatePrompt(text, question, total) {
   }
 
   if (question === 0) {
-    return `Califica mi nivel de tristeza del 0 al 3, donde el 0 significa que no estoy nada triste o que estoy feliz y 3 que no
-    puedo más con mi tristeza o que estoy muy triste o que soy muy infeliz.
+    return `Califica mi nivel de tristeza del 0 al 3, donde el 0 significa que no estoy nada triste o que estoy feliz y 3 que no puedo más con mi tristeza o que estoy muy triste o que soy muy infeliz.
     user: No me siento triste, estoy feliz.
     system: 0,
-    user: Me siento triste, me siento triste frecuentemente gran parte del tiempo
+    user: Me siento triste, me siento triste frecuentemente
     system: 1,
     user: Me siento triste todo el tiempo y no puedo evitarlo, me siento triste muy frecuentemente
     system: 2,
-    user: Me siento tan triste o soy tan infeliz que no puedo soportarlo más o significa una gran carga emocional, me
-    siento triste siempre
+    user: Me siento tan triste o soy tan infeliz que no puedo soportarlo más o significa una gran carga emocional, me siento triste siempre
     system: 3,
     user: ${text}
     system:`;
   }
   if (question === 1) {
-    return `Califica mi nivel de pesimismo del 0 al 3, donde el 0 significa que no estoy desalentado o desanimado
-    respecto mi futuro y 3 que no hay esperanza para mi futuro o que mi futuro es castastrófico.
+    return `Califica mi nivel de pesimismo del 0 al 3, donde el 0 significa que no estoy desalentado o desanimado respecto mi futuro y 3 que no hay esperanza para mi futuro o que mi futuro es castastrófico.
     user: No estoy desalentado o desanimado respecto a mi futuro, Me siento optimista respecto a mi futuro
     system: 0,
-    user: Me siento más desalentado respecto de mi futuro que lo que solía estarlo, me siento poco optimista.
+    user: Me siento más desalentado respecto de mi futuro que lo que solía estarlo, me siento poco optimista
     system: 1,
     user: No espero que las cosas funcionen para mí, no espero que vaya a salir de ésta situación.
     system: 2,
@@ -112,9 +109,7 @@ function generatePrompt(text, question, total) {
     system:`;
   }
   if (question === 2) {
-    return `Califica mi nivel de autoestima al enfrentar los fracasos del 0 al 3, donde el 0 significa que no me siento como
-    un fracasado o me siento una persona exitosa, productiva y 3 siento que como persona soy un fracaso total o que no
-    soy para nada una persona exitosa, productiva.
+    return `Califica mi nivel de autoestima al enfrentar los fracasos del 0 al 3, donde el 0 significa que no me siento como un fracasado o me siento una persona exitosa, productiva y 3 siento que como persona soy un fracaso total o que no soy para nada una persona exitosa, productiva.
     user: No me siento como un fracasado, me siento una persona exitosa o productiva.
     system: 0,
     user: He fracaso más de lo que hubiera debido, he tenido fracasos frecuentes.
@@ -127,30 +122,23 @@ function generatePrompt(text, question, total) {
     system:`;
   }
   if (question === 3) {
-    return `Califica mi nivel de pérdida de placer en la vida del 0 al 3, donde el 0 disfruto las cosas igual que siempre u
-    obtengo tanta satisfacción de las cosas como siempre y 3 no puedo obtener ningún placer de las cosas que solía
-    disfrutar o estoy insatisfecho y aburrido con todo.
-    user: Obtengo tanto placer como siempre por las cosas que disfruto, obtengo tanta satisfacción de las cosas como
-    siempre
+    return `Califica mi nivel de pérdida de placer en la vida del 0 al 3, donde el 0 disfruto las cosas igual que siempre u obtengo tanta satisfacción de las cosas como siempre y 3 no puedo obtener ningún placer de las cosas que solía disfrutar o estoy insatisfecho y aburrido con todo.
+    user: Obtengo tanto placer como siempre por las cosas que disfruto, obtengo tanta satisfacción de las cosas como siempre
     system: 0,
     user: No disfruto tanto de las cosas como solía hacerlo
     system: 1,
     user: Obtengo muy poco placer de las cosas que solía disfrutar
     system: 2,
-    
-    user: No puedo obtener ningún placer de las cosas que solía disfrutar, ya no obtengo nada de satisfacción o placer
-    por las cosas que disfrutaba, o estoy insatisfecho y aburrido con todo
+    user: No puedo obtener ningún placer de las cosas que solía disfrutar, ya no obtengo nada de satisfacción o placer por las cosas que disfrutaba, o estoy insatisfecho y aburrido con todo
     system: 3,
     user: ${text}
     system:`;
   }
   if (question === 4) {
-    return `Califica mi nivel de culpabilidad del 0 al 3, donde el 0 no me siento particularmente culpable o para nada me
-    siento culpable y 3 me siento culpable todo el tiempo.
+    return `Califica mi nivel de culpabilidad del 0 al 3, donde el 0 no me siento particularmente culpable o para nada me siento culpable y 3 me siento culpable todo el tiempo.
     user: No me siento particularmente culpable, para nada me siento culpable
     system: 0,
-    user: Me siento culpable respecto de varias cosas que he hecho o que debería haber hecho, me siento culpable
-    frecuentemente.
+    user: Me siento culpable respecto de varias cosas que he hecho o que debería haber hecho, me siento culpable frecuentemente.
     system: 1,
     user: Me siento bastante culpable la mayor parte del tiempo, me siento culpable muy frecuentemente.
     system: 2,
@@ -160,8 +148,7 @@ function generatePrompt(text, question, total) {
     system:`;
   }
   if (question === 5) {
-    return `Califica mi nivel de percepción frente al castigo del 0 al 3, donde el 0 no siento que este siendo castigado y 3
-    siento que estoy siendo castigado.
+    return `Califica mi nivel de percepción frente al castigo del 0 al 3, donde el 0 no siento que este siendo castigado y 3 siento que estoy siendo castigado.
     user: No siento que este siendo castigado, no creo que deba ser castigado.
     system: 0,
     user: Siento que tal vez pueda ser castigado, siento que podría ser castigado.
@@ -174,18 +161,15 @@ function generatePrompt(text, question, total) {
     system:`;
   }
   if (question === 6) {
-    return `Califica mi nivel de nivel de disconformidad o decepción conmigo mismo del 0 al 3, donde el 0 siento acerca
-    de mi lo mismo que siempre, no tengo ninguna disconformidad o decepción de mí mismo, me siento feliz con quién
-    soy, me acepto tal cual soy.
+    return `Califica mi nivel de nivel de disconformidad o decepción conmigo mismo del 0 al 3, donde el 0 siento acerca de mi lo mismo que siempre, no tengo ninguna disconformidad o decepción de mí mismo, me siento feliz con quién soy, me acepto tal cual soy.
     y 3 no me gusto a mí mismo.
-    user: Siento acerca de mi lo mismo que siempre, no tengo ninguna disconformidad o decepción de mí mismo, siento
-    lo mismo que antes sobre mí mismo, no me siento decepcionado o disconforme conmigo mismo, me quiero tal cual
-    soy.
+    user: Siento acerca de mi lo mismo que siempre, no tengo ninguna disconformidad o decepción de mí mismo, siento lo mismo que antes sobre mí mismo, no me siento decepcionado o disconforme conmigo mismo, me quiero tal cual soy.
+     
     system: 0,
     user: He perdido la confianza en mí mismo
     system: 1,
-    user: Estoy decepcionado conmigo mismo, estoy decepcionado o disconforme conmigo mismo,me doy vergüenza a
-    mí mismo.
+    user: Estoy decepcionado conmigo mismo, estoy decepcionado o disconforme conmigo mismo,me doy vergüenza a mí mismo.
+     
     system: 2,
     user: No me gusto a mí mismo, no me gusto, me odio, no me quiero a mí mismo.
     system: 3,
@@ -193,30 +177,23 @@ function generatePrompt(text, question, total) {
     system:`;
   }
   if (question === 7) {
-    return `Califica mi nivel de autocrítica del 0 al 3, donde el 0 no me critico ni me culpo más de lo habitual y 3 me culpo
-    a mi mismo por todo lo malo que sucede.
-    user: No me critico ni me culpo más de lo habitual, no me critico o me culpo más que antes, no me considero peor
-    que cualquier otra persona.
+    return `Califica mi nivel de autocrítica del 0 al 3, donde el 0 no me critico ni me culpo más de lo habitual y 3 me culpo a mi mismo por todo lo malo que sucede.
+    user: No me critico ni me culpo más de lo habitual, no me critico o me culpo más que antes, no me considero peor que cualquier otra persona.
     system: 0,
-    
     user: Estoy más crítico conmigo mismo de lo que solía estarlo, soy más crítico conmigo mismo de lo que solía ser,
     system: 1,
-    user: Me crítico a mimí mismo por todos mis errores, critico todos mis defectos, me critico muy frecuentemente por
-    todos mis errores, me culpo muy frecuentemente por todos mis errores.
+    user: Me crítico a mí mismo por todos mis errores, critico todos mis defectos, me critico muy frecuentemente por todos mis errores, me culpo muy frecuentemente por todos mis errores.
     system: 2,
-    user: Me culpo a mimí mismo por todo lo que sucede, me culpo por todo lo malo que sucede, me culpo siempre por
-    todo lo malo que sucede.
+    user: Me culpo a mí mismo por todo lo que sucede, me culpo por todo lo malo que sucede, me culpo siempre por todo lo malo que sucede.
     system: 3,
     user: ${text}
     system:`;
   }
   if (question === 8) {
-    return `Califica mi nivel de pensamientos o deseos suicidas del 0 al 3, donde el 0 no tengo ningún pensamiento de
-    matarme y 3 me mataría si tuviera la oportunidad de hacerlo.
+    return `Califica mi nivel de pensamientos o deseos suicidas del 0 al 3, donde el 0 no tengo ningún pensamiento de matarme y 3 me mataría si tuviera la oportunidad de hacerlo.
     user: No tengo ningún pensamiento de matarme, no tengo ningún pensamiento de suicidio.
     system: 0,
-    user: He tenido pensamientos de matarme, pero no lo haría, tengo pensamientos de suicidio, pero no los llevaría a
-    cabo, tengo pensamientos ocasionales de matarme pero no lo llevaría a cabo.
+    user: He tenido pensamientos de matarme, pero no lo haría, tengo pensamientos de suicidio, pero no los llevaría a cabo, tengo pensamientos ocasionales de matarme pero no lo llevaría a cabo.
     system: 1,
     user: Querría matarme, me gustaría suicidarme, tengo la idea de suicidarme
     system: 2,
@@ -226,8 +203,7 @@ function generatePrompt(text, question, total) {
     system:`;
   }
   if (question === 9) {
-    return `Califica mi incremento de llanto del 0 al 3, donde el 0 no lloro más de lo que solía hacerlo y 3 siento ganas de
-    llorar pero no puedo.
+    return `Califica mi incremento de llanto del 0 al 3, donde el 0 no lloro más de lo que solía hacerlo y 3 siento ganas de llorar pero no puedo.
     user: No lloro más de lo que solía hacerlo, no lloro más que antes
     system: 0,
     user: Lloro más de lo que solía hacerlo, ahora lloro más que antes, lloro frecuentemente
@@ -239,198 +215,161 @@ function generatePrompt(text, question, total) {
     user: ${text}
     system:`;
   }
+
   if (question === 10) {
-    return `Califica mi nivel de agitación o irritación del 0 al 3, donde el 0 No estoy más inquieto o tenso que lo habitual y
-    3 Estoy tan inquieto o agitado que tengo que esar siempre en movimiento o haciendo algo.
+    return `Califica mi nivel de agitación o irritación del 0 al 3, donde el 0 No estoy más inquieto o tenso que lo habitual y 3 Estoy tan inquieto o agitado que tengo que esar siempre en movimiento o haciendo algo.
     user: No estoy más inquieto o tenso que lo habitual, no me irritan las cosas más que antes
     system: 0,
     user: Me siento más inquieto o tenso que lo habitual, actualmente me irritan las cosas ligeramente más que antes
     system: 1,
-    user: Estoy tan inquieto o agitado que me es difícil quedarme quieto, estoy bastante molesto o irritado buena parte
-    del tiempo, estoy molesto o irritado muy frecuentemente.
+    user: Estoy tan inquieto o agitado que me es difícil quedarme quieto, estoy bastante molesto o irritado buena parte del tiempo, estoy molesto o irritado muy frecuentemente.
     system: 2,
-    user: Estoy tan inquieto o agitado que tengo que estar siempre en movimiento o haciendo algo, estoy bastante
-    molesto o irritado siempre o todo los días.
+    user: Estoy tan inquieto o agitado que tengo que estar siempre en movimiento o haciendo algo, estoy bastante molesto o irritado siempre o todo los días.
     system: 3,
     user: ${text}
     system:`;
   }
+
   if (question === 11) {
-    return `Califica mi nivel de pérdida de interés del 0 al 3, donde el 0 No he perdido el interés en otras actividades o
-    personas y 3 Me es difícil interesarme por algo.
-    
-    user: No he perdido el interés en otras actividades o personas, no he perdido el interés en los demás, me encuentro
-    interesado en otras actividades, personas o cosas.
+    return `Califica mi nivel de pérdida de interés del 0 al 3, donde el 0 No he perdido el interés en otras actividades o personas y 3 Me es difícil interesarme por algo.
+    user: No he perdido el interés en otras actividades o personas, no he perdido el interés en los demás, me encuentro interesado en otras actividades, personas o cosas.
     system: 0,
-    user: Estoy menos interesado que antes en otras personas o cosas, he perdido un poco de interés en otras
-    actividades, personas o cosas.
+    user: Estoy menos interesado que antes en otras personas o cosas, he perdido un poco de interés en otras actividades, personas o cosas.
     system: 1,
-    user: He perdido casi todo el interés en otras personas o cosas, he perdido en gran medida el interés por los demás,
-    he perdido el interés en otras actividades, personas o cosas
+    user: He perdido casi todo el interés en otras personas o cosas, he perdido en gran medida el interés por los demás, he perdido el interés en otras actividades, personas o cosas
     system: 2,
-    user: Me es difícil interesarme por algo, he perdido todo el interés en otras actividades, personas o cosas, no me
-    interesa ninguna actividade, persona ni cosa.
+    user: Me es difícil interesarme por algo, he perdido todo el interés en otras actividades, personas o cosas, no me interesa ninguna actividade, persona ni cosa.
     system: 3,
     user: ${text}
     system:`;
   }
+
   if (question === 12) {
-    return `Califica mi nivel de indecisión o toma de decisiones del 0 al 3, donde el 0 Tomo mis propias decisiones tan
-    bien como siempre y 3 Tengo problemas para tomar cualquier decisión.
-    user: Tomo mis propias decisiones tan bien como siempre, soy decidido
+    return `Califica mi nivel de indecisión del 0 al 3, donde el 0 Tomo mis propias decisiones tan bien como siempre y 3 Tengo problemas para tomar cualquier decisión.
+    user: Tomo mis propias decisiones tan bien como siempre
     system: 0,
-    user: Me resulta más difícil que de costumbre tomar decisiones, soy un poco indeciso, evito tomar decisiones más
-    que antes
+    user: Me resulta más difícil que de costumbre tomar decisiones
     system: 1,
-    user: Encuentro mucha más dificultad que antes para tomar decisiones, soy indeciso, tomar decisiones me resulta
-    mucho más dificil
+    user: Encuentro mucha más dificultad que antes para tomar decisiones
     system: 2,
-    user: Tengo problemas para tomar cualquier decisión, soy muy indeciso, me es imposible tomar decisiones
+    user: Tengo problemas para tomar cualquier decisión
     system: 3,
     user: ${text}
     system:`;
   }
+
   if (question === 13) {
-    return `Califica mi nivel de desvalorización personal o autoestima del 0 al 3, donde el 0 No siento que yo no sea
-    valioso, soy valioso y 3 Siento que no valgo nada.
-    user: No siento que yo no sea valioso, soy valioso, me considero valioso, soy una persona valiosa, tengo buena
-    autoestima, me estimo
+    return `Califica mi nivel de desvalorización del 0 al 3, donde el 0 No siento que yo no sea valioso y 3 Siento que no valgo nada.
+    user: No siento que yo no sea valioso
     system: 0,
-    user: No me considero a mi mismo tan valioso y útil como solía considerarme, mi valor como persona ha disminuido
-    un poco, me siento algo valioso, me siento poco valioso, tengo poca autoestima.
+    user: No me considero a mi mismo tan valioso y útil como solía considerarme
     system: 1,
-    user: Me siento menos valioso cuando me comparo con otros, me siento casi nada valioso, tengo casi nada de
-    autoestima
+    user: Me siento menos valioso cuando me comparo con otros
     system: 2,
-    user: Siento que no valgo nada, no soy nada valioso, no tengo autoestima, no me estimo, me detesto, tengo muy
-    baja autoestima.
+    user: Siento que no valgo nada
     system: 3,
     user: ${text}
     system:`;
   }
+
   if (question === 14) {
-    return `Califica mi nivel de pérdida de energía o mi nivel de energía, o fatiga, o abulia,o enlentecimiento psicomotor,
-    o apatía, o falta de espontaneidad, o debilidad de la voluntad del 0 al 3, donde el 0 Tengo tanta energía como
-    siempre y 3 No tengo energía suficiente para hacer nada.
-    user: Tengo tanta energía como siempre, tengo energía, no tengo fatiga, hago muchas cosas como siempre,
-    siempre tengo energía, soy productivo, tengo voluntad.
+    return `Califica mi nivel de pérdida de energía del 0 al 3, donde el 0 Tengo tanta energía como siempre y 3 No tengo energía suficiente para hacer nada.
+    user: Tengo tanta energía como siempre
     system: 0,
-    user: Tengo menos energía que la que solía tener, tengo menos energía, me cuesta un poco iniciar cosas.
+    user: Tengo menos energía que la que solía tener
     system: 1,
-    
-    user: No tengo suficiente energía para hacer demasiado, tengo que obligarme mucho para hacer algo, me cuesta
-    mucho trabajo hacer algo,
+    user: No tengo suficiente energía para hacer demasiado
     system: 2,
-    user: No tengo energía suficiente para hacer nada, no quiero hacer nada, no tengo nada de fuerza de voluntad para
-    hacer algo, no tengo nada de voluntad, no puedo hacer nada en absoluto.
+    user: No tengo energía suficiente para hacer nada
     system: 3,
     user: ${text}
     system:`;
   }
+
   if (question === 15) {
-    return `Califica mi nivel de cambios en mis hábitos del sueño del 0 al 3, donde el 0 No he experimentado ningún
-    cambio en mis hábitos de sueño y 3 duermo la mayor parte del día o me despierto 1-2 horas más temprano y no
-    puedo volver a dormirme.
-    user: No he experimentado ningún cambio en mis hábitos de sueño, duermo muy bien, duermo bien, no tengo
-    problemas para dormir, duermo tan bien como antes.
+    return `Califica mi nivel de cambios en mis hábitos del sueño del 0 al 3, donde el 0 No he experimentado ningún cambio en mis hábitos de sueño y 3 duermo la mayor parte del día o me despierto 1-2 horas más temprano y no puedo volver a dormirme.
+    user: No he experimentado ningún cambio en mis hábitos de sueño
     system: 0,
-    user: Duermo un poco más de lo habitual, estoy un poco cansado
+    user: Duermo un poco más de lo habitual
     system: 1,
-    user: Duermo un poco menos que lo habitual, tengo un poco de problemas para dormir, tengo un poco de insomnio,
-    tengo algo de insomnio.
+    user: Duermo un poco menos que lo habitual
     system: 1,
-    user: Duermo mucho más que lo habitual, casi siempre o frecuentemente tengo sueño, casi siempre o
-    frecuentemente quiero dormir o Duermo mucho menos que lo habitual, casi siempre o frecuentemente tengo
-    insomnio, casi siempre o frecuentemente no puedo dormir
+    user: Duermo mucho más que lo habitual o Duermo mucho menos que lo habitual
     system: 2,
-    user: Duermo la mayor parte del día, siempre o muy frecuentemente tengo sueño, siempre tengo mucho sueño, solo
-    quiero dormir, siempre o muy frecuentemente quiero dormir, siempre o muy frecuentemente estoy durmiendo, o Me
-    despierto 1-2 horas más temprano y no puedo volver a dormirme, siempre o muy frecuentemente tengo insomnio,
-    siempre o muy frecuentemente no puedo dormir
+    user: Duermo la mayor parte del día o Me despierto 1-2 horas más temprano y no puedo volver a dormirme
     system: 3,
     user: ${text}
     system:`;
   }
+
   if (question === 16) {
-    return `Califica mi nivel de irritabilidad o enojo del 0 al 3, donde el 0 No estoy tan irritable o enojado que lo habitual y
-    3 Estoy irritable o enojado todo el tiempo.
-    user: No estoy tan irritable que lo habitual, me siento tranquilo, no estoy enojado, me siento bien, no me siento
-    irritable
+    return `Califica mi nivel de irritabilidad del 0 al 3, donde el 0 No estoy tan irritable que lo habitual y 3 Estoy irritable todo el tiempo.
+    user: No estoy tan irritable que lo habitual
     system: 0,
-    user: Estoy más irritable que lo habitual, a menudo estoy irritable, a menudo estoy enojado
+    user: Estoy más irritable que lo habitual
     system: 1,
-    user: Estoy mucho mas irritable que lo habitual, casi siempre o frecuentemente estoy irritable, casi siempre o
-    frecuentemente estoy enojado.
+    user: Estoy mucho mas irritable que lo habitual
     system: 2,
-    user: Estoy irritable todo el tiempo, siempre o muy frecuentemente estoy irritable, siempre o muy frecuentemente
-    estoy enojado, me enojo de todo.
+    user: Estoy irritable todo el tiempo
     system: 3,
     user: ${text}
     system:`;
   }
+
   if (question === 17) {
-    return `Califica mi nivel de cambios en el apetito del 0 al 3, donde el 0 No he experimentado ningún cambio en mi
-    apetito y 3 No tengo apetito en absoluto o quiero comer todo el día.
-    user: No he experimentado ningún cambio en mi apetito, como de todo, como bien.
+    return `Califica mi nivel de cambios en el apetito del 0 al 3, donde el 0 No he experimentado ningún cambio en mi apetito y 3 No tengo apetito en absoluto o quiero comer todo el día.
+    user: No he experimentado ningún cambio en mi apetito
     system: 0,
-    user: Mi apetito es un poco menor que lo habitual, como un poco menos o mi apetito es un poco mayor que lo
-    habitual, como un poco más
+    user: Mi apetito es un poco menor que lo habitual o mi apetito es un poco mayor que lo habitual
     system: 1,
-    
-    user: Mi apetito es mucho menor que antes, casi no tengo hambre, casi no como, casi no tengo ganas de comer o mi
-    apetito es mucho mayor que lo habitual, casi siempre tengo mucha hambre,
+    user: Mi apetito es mucho menor que antes o mi apetito es mucho mayor que lo habitual
     system: 2,
-    user: No tengo apetito en absoluto o quiero comer todo el día, no tengo nada de hambre,nunca tengo hambre, nunca
-    quiero comer
+    user: No tengo apetito en absoluto o quiero comer todo el día
     system: 3,
     user: ${text}
     system:`;
   }
+
   if (question === 18) {
-    return `Califica mi nivel de concentración del 0 al 3, donde el 0 Puedo concentrarme tan bien como de costumbre y 3
-    Encuentro que no puedo concentrarme en nada.
-    user: Puedo concentrarme tan bien como siempre, me concentro fácilmente, me concentro
+    return `Califica mi nivel de concentración del 0 al 3, donde el 0 Puedo concentrarme tan bien como de costumbre y 3 Encuentro que no puedo concentrarme en nada.
+    user: Puedo concentrarme tan bien como siempre
     system: 0,
-    user: No puedo concentrarme tan bien como habitualmente, tengo un poco de dificultades de concentración
+    user: No puedo concentrarme tan bien como habitualmente
     system: 1,
-    user: Me es difícil mantener la mente en algo por mucho tiempo, tengo dificultades moderadas de concentración
+    user: Me es difícil mantener la mente en algo por mucho tiempo
     system: 2,
-    user: Encuentro que no puedo concentrarme en nada, nunca me puedo concentrar, tengo dificultades marcadas
-    para concentrarme
+    user: Encuentro que no puedo concentrarme en nada
     system: 3,
     user: ${text}
     system:`;
   }
+
   if (question === 19) {
-    return `Califica mi nivel de cansancio o fatiga del 0 al 3, donde el 0 No estoy más cansado o fatigado que lo habitual
-    y 3 Estoy demasiado fatigado o cansado para hacer la mayoría de las cosas que solía hacer.
-    user: No estoy más cansado o fatigado que lo habitual, tengo tanta energía como siempre, no me siento cansado o
-    fatigado
+    return `Califica mi nivel de cansancio o fatiga del 0 al 3, donde el 0 No estoy más cansado o fatigado que lo habitual y 3 Estoy demasiado fatigado o cansado para hacer la mayoría de las cosas que solía hacer.
+    user: No estoy más cansado o fatigado que lo habitual
     system: 0,
-    user: Me fatigo o me canso más fácilmente que lo habitual, tengo menos energía, estoy un poco cansado, tengo algo
-    de cansancio
+    user: Me fatigo o me canso más fácilmente que lo habitual
     system: 1,
-    user: Estoy demasiado fatigado o cansado para hacer muchas de las cosas que solía hacer, tengo cansancio
-    moderado, casi siempre o frecuentemente estoy cansado
+    user: Estoy demasiado fatigado o cansado para hacer muchas de las cosas que solía hacer
     system: 2,
-    user: Estoy demasiado fatigado o cansado para hacer la mayoría de las cosas que solía hacer, tengo cansancio
-    marcado o grave, siempre o muy frecuentemente estoy cansado
+    user: Estoy demasiado fatigado o cansado para hacer la mayoría de las cosas que solía hacer
     system: 3,
     user: ${text}
     system:`;
   }
+
   if (question === 20) {
-    return `Califica mi nivel de pérdida de interés en el sexo del 0 al 3, donde el 0 No he notado ningún cambio reciente
-    en mi interés por el sexo y 3 He perdido completamente el interés en el sexo.
-    user: No he notado ningún cambio reciente en mi interés por el sexo, tengo interés en el sexo
+    return `Califica mi nivel de pérdida de interés en el sexo del 0 al 3, donde el 0 No he notado ningún cambio reciente en mi interés por el sexo y 3 He perdido completamente el interés en el sexo.
+    user: No he notado ningún cambio reciente en mi interés por el sexo
     system: 0,
-    user: Estoy menos interesado en el sexo de lo que solía estarlo, tengo poco interés en el sexo
+    user: Estoy menos interesado en el sexo de lo que solía estarlo
     system: 1,
-    user: Estoy mucho menos interesado en el sexo, tengo moderado desinterés en el sexo
+    user: Estoy mucho menos interesado en el sexo
     system: 2,
-    user: He perdido completamente el interés en el sexo, no me interesa el sexo, tengo marcado desinteres en el sexo,
+    user: He perdido completamente el interés en el sexo
     system: 3,
     user: ${text}
     system:`;
   }
 }
+
