@@ -20,7 +20,7 @@ const Chat = (props) => {
   const [initial, setInitial] = useState(true);
   const [inputMessage, setInputMessage] = useState("");
   const [personalData, setPersonalData] = useState({});
-  const [completed, setCompleted] = useState(false)
+  const [completed, setCompleted] = useState(false);
   const [questionnaireInfo, setQuestionnaireInfo] = useState([]);
 
   useEffect(() => {
@@ -47,14 +47,14 @@ const Chat = (props) => {
         ...old,
         {
           from: "computer",
-          text: "Si estas de acuerdo te haré unas preguntas para entender un poco más acerca de como te sientes, te recomiendo contestar con lo que mejor describa el modo de como te has sentido en los últimas dos semanas, incluyendo el día de hoy",
+          text: "Te haré unas preguntas para entender un poco más acerca de como te sientes, te recomiendo contestar con lo que mejor describa el modo de como te has sentido en los últimas dos semanas, incluyendo el día de hoy. Escribe cualquier cosa para continuar",
         },
       ]);
     }, 2000);
   }, []);
 
-  const handleFinish = ()=> {
-    console.log("FIN")
+  const handleFinish = () => {
+    console.log("FIN");
     setMessages((old) => [
       ...old,
       {
@@ -62,8 +62,7 @@ const Chat = (props) => {
         text: `Ya terminó nuestra sesión, gracias por contestar las preguntas. Para los siguientes pasos favor de consultar tu correo. Ya puedes cerrar esta ventana.`,
       },
     ]);
-
-  }
+  };
 
   const sendEmailResults = async (rate, finalResponse) => {
     console.log("Personal Data");
@@ -98,13 +97,36 @@ const Chat = (props) => {
     }
   };
 
+  const transformFinalAnswer = (response, total)=> {
+
+    if (total === 0) {
+      return response
+    } else if (total > 0 && total <= 13) {
+
+      return "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, indica que tienes una depresión mínima. " + response
+
+    } else if (total >= 14 && total <= 19) {
+      return "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, indica que tienes una depresión leve. " + response
+
+    
+    } else if (total >= 20 && total <= 28) {
+      return "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, indica que tienes una depresión moderada. " + response
+
+
+    } else {
+      return "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, indica que tienes una depresión grave " + response
+
+    }
+
+  }
+
   const sendEmailResultsPatient = async (rate, finalResponse) => {
     console.log("Personal Data");
     console.log(personalData);
 
     const res = await fetch("/api/sendgrid2", {
       body: JSON.stringify({
-        subject: `Inventario de depresión de Beck -${personalData.name}`,
+        subject: `Resultados preliminares y Siguientes pasos - Chat Generative AI-${personalData.name}`,
         email: personalData.email,
         name: personalData.name,
         apeido: personalData.apeido,
@@ -140,6 +162,7 @@ const Chat = (props) => {
     setInputMessage("");
 
     const response = await fetchResponse(data, count);
+    console.log("GERMAN ", response);
 
     console.log("CONTADOR", count);
 
@@ -150,7 +173,8 @@ const Chat = (props) => {
       console.log("Resultado FInal");
       console.log(inputMessage);
 
-      //Volver a poner las lineas de aabajo comentadas para que funcione bien
+      //let num = parseInt(inputMessage.replace(/\D/g, ""));
+      //console.log("PROBANDO",num); 
       let lastRate = getRateFromResponse(response, rate, setRate);
 
       setTimeout(() => {
@@ -158,7 +182,7 @@ const Chat = (props) => {
           ...old,
           {
             from: "computer",
-            text: `Gracias ${props.userInfo?.name} por contestar todas las preguntas, estamos procesando tus respuestas, por favor espera. Toma en cuenta que los resultados que se te muestran aquí son preliminares y no reflejan una evaluación completa. Tus resultados finales, junto con unas recomendaciones de acuerdo a tus puntajes, se te compartirán por correo una vez que completes los otros cuestionarios a través del link que se te mandarán al correo que proporcionaste.`,
+            text: `Gracias ${props.userInfo?.name} por contestar todas las preguntas, estamos procesando tus respuestas, por favor espera. Toma en cuenta que los resultados que se te muestran aquí son preliminares y no reflejan una evaluación completa. Tus resultados finales, junto con unas recomendaciones de acuerdo a tus puntajes, se te compartirán por correo una vez que completes los otros cuestionarios a través del link que se te esta mandando al correo que proporcionaste.`,
           },
         ]);
       }, 2000);
@@ -167,9 +191,14 @@ const Chat = (props) => {
         data,
         "results",
         lastRate !== "No me dio calificacion" ? rate + lastRate : rate
+        //num
       );
 
-      //let finalResponse = await fetchResponse(data, "results", inputMessage.split(/\D+/)[1]);
+
+
+      //Add Tipo de depresion a la respuesta final
+      finalResponse = transformFinalAnswer(finalResponse, num)
+
 
       answers.push(`${count + 1} | ${data} | ${getRateOnly(response)}`);
       setQuestionnaireInfo(answers);
@@ -211,13 +240,15 @@ const Chat = (props) => {
       }, 12000);
       sendEmailResults(
         lastRate !== "No me dio calificacion" ? rate + lastRate : rate,
+        //rate,
         finalResponse
       );
       sendEmailResultsPatient(
         lastRate !== "No me dio calificacion" ? rate + lastRate : rate,
+        //rate,
         finalResponse
       );
-      setCompleted(true)
+      setCompleted(true);
     }
 
     //Cuando todavia no termina el cuestionario y si le dio calificacion
@@ -231,14 +262,6 @@ const Chat = (props) => {
       answers.push(`${count + 1} | ${data} | ${getRateOnly(response)}`);
       console.log(answers);
 
-     /* setTimeout(() => {
-
-
-        setMessages((old) => [
-          ...old,
-          { from: "computer", text: getRateOnly(response) },
-        ]);
-      }, 1000); */
 
       setTimeout(() => {
         if (!initial) {
@@ -294,14 +317,14 @@ const Chat = (props) => {
   return (
     <Flex w="100%" h="100vh" justify="center" align="center">
       <Flex w={["100%", "100%", "40%"]} h="90%" flexDir="column">
-        <Header name={props.userInfo?.name} apeido={props.userInfo?.apeido}/>
+        <Header name={props.userInfo?.name} apeido={props.userInfo?.apeido} />
         <Divider />
         <Messages messages={messages} />
         <Divider />
         <Footer
           inputMessage={inputMessage}
           setInputMessage={setInputMessage}
-          handleSendMessage={!completed ? handleSendMessage: handleFinish}
+          handleSendMessage={!completed ? handleSendMessage : handleFinish}
         />
       </Flex>
     </Flex>
