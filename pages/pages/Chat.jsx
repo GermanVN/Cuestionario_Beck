@@ -97,28 +97,31 @@ const Chat = (props) => {
     }
   };
 
-  const transformFinalAnswer = (response, total)=> {
-
+  const transformFinalAnswer = (response, total) => {
     if (total === 0) {
-      return response
+      return response;
     } else if (total > 0 && total <= 13) {
-
-      return "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, indica que tienes una depresión mínima. " + response
-
+      return (
+        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, indica que tienes una depresión mínima. " +
+        response
+      );
     } else if (total >= 14 && total <= 19) {
-      return "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, indica que tienes una depresión leve. " + response
-
-    
+      return (
+        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, indica que tienes una depresión leve. " +
+        response
+      );
     } else if (total >= 20 && total <= 28) {
-      return "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, indica que tienes una depresión moderada. " + response
-
-
+      return (
+        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, indica que tienes una depresión moderada. " +
+        response
+      );
     } else {
-      return "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, indica que tienes una depresión grave " + response
-
+      return (
+        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, indica que tienes una depresión grave " +
+        response
+      );
     }
-
-  }
+  };
 
   const sendEmailResultsPatient = async (rate, finalResponse) => {
     console.log("Personal Data");
@@ -174,7 +177,7 @@ const Chat = (props) => {
       console.log(inputMessage);
 
       //let num = parseInt(inputMessage.replace(/\D/g, ""));
-      //console.log("PROBANDO",num); 
+      //console.log("PROBANDO",num);
       let lastRate = getRateFromResponse(response, rate, setRate);
 
       setTimeout(() => {
@@ -194,11 +197,11 @@ const Chat = (props) => {
         //num
       );
 
-
-
       //Add Tipo de depresion a la respuesta final
-      finalResponse = transformFinalAnswer(finalResponse, num)
-
+      finalResponse = transformFinalAnswer(
+        finalResponse,
+        lastRate !== "No me dio calificacion" ? rate + lastRate : rate
+      );
 
       answers.push(`${count + 1} | ${data} | ${getRateOnly(response)}`);
       setQuestionnaireInfo(answers);
@@ -261,7 +264,6 @@ const Chat = (props) => {
 
       answers.push(`${count + 1} | ${data} | ${getRateOnly(response)}`);
       console.log(answers);
-
 
       setTimeout(() => {
         if (!initial) {
