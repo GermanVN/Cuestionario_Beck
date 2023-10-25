@@ -107,17 +107,17 @@ const Chat = (props) => {
       );
     } else if (total >= 14 && total <= 19) {
       return (
-        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, se identificaron síntomas relacionados con la impotencia sexual." +
+        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, se identificaron síntomas relacionados con la depresión." +
         response
       );
     } else if (total >= 20 && total <= 28) {
       return (
-        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, se identificaron síntomas relacionados con la impotencia sexual." +
+        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, se identificaron síntomas relacionados con la depresión." +
         response
       );
     } else {
       return (
-        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, se identificaron síntomas relacionados con la impotencia sexual." +
+        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, se identificaron síntomas relacionados con la depresión." +
         response
       );
     }
