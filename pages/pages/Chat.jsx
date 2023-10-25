@@ -257,9 +257,10 @@ const Chat = (props) => {
 
     //Cuando todavia no termina el cuestionario y si le dio calificacion
 
+
     if (
       count < 20 &&
-      getRateFromResponse(response, rate, setRate) !== "No me dio calificacion"
+      getRateFromResponse(response, rate, setRate, ignore) !== "No me dio calificacion"
     ) {
       console.log("SI TENGO CALIFICACION");
       
@@ -295,7 +296,7 @@ const Chat = (props) => {
 
     if (
       count < 20 &&
-      getRateFromResponse(response, rate, setRate) === "No me dio calificacion"
+      getRateFromResponse(response, rate, setRate, ignore) === "No me dio calificacion"
     ) {
       console.log("NO TENGO CALIFICACION");
       setTimeout(() => {

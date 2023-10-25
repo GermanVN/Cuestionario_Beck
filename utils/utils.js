@@ -36,13 +36,18 @@ export const getRateOnly = (response) => {
 
 };
 
-export const getRateFromResponse = (response, rate, setRate) => {
+export const getRateFromResponse = (response, rate, setRate, ignore) => {
+  console.log("ignore", ignore)
   let total;
   let numbers = response.match(/(\d+(\.\d+)?)/g);
 
   if (numbers) {
     total = rate + parseInt(numbers[0]);
+    
+    if (ignore) {
     setRate(total);
+    console.log("Sumo calificacion")
+    }
 
     console.log("Calificacion")
     console.log(parseInt(numbers[0]))
