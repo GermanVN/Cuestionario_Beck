@@ -21,6 +21,7 @@ const Chat = (props) => {
   const [inputMessage, setInputMessage] = useState("");
   const [personalData, setPersonalData] = useState({});
   const [completed, setCompleted] = useState(false);
+  const [ignore, setIgnore] = useState(false)
   const [questionnaireInfo, setQuestionnaireInfo] = useState([]);
 
   useEffect(() => {
@@ -102,22 +103,22 @@ const Chat = (props) => {
       return response;
     } else if (total > 0 && total <= 13) {
       return (
-        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, no se identificaron síntomas relacionados con la depresión." +
+        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, no se identificaron síntomas relacionados con la depresión. Te dejo aquí unas recomendaciones preliminares:" +
         response
       );
     } else if (total >= 14 && total <= 19) {
       return (
-        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, se identificaron síntomas relacionados con la depresión." +
+        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, se identificaron síntomas relacionados con la depresión. Te dejo aquí unas recomendaciones preliminares:" +
         response
       );
     } else if (total >= 20 && total <= 28) {
       return (
-        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, se identificaron síntomas relacionados con la depresión." +
+        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, se identificaron síntomas relacionados con la depresión. Te dejo aquí unas recomendaciones preliminares:" +
         response
       );
     } else {
       return (
-        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, se identificaron síntomas relacionados con la depresión." +
+        "De acuerdo con las respuestas que proporcionaste, tu puntaje obtenido basado en el inventario de depresión de Beck-II, se identificaron síntomas relacionados con la depresión. Te dejo aquí unas recomendaciones preliminares:" +
         response
       );
     }
@@ -261,9 +262,17 @@ const Chat = (props) => {
       getRateFromResponse(response, rate, setRate) !== "No me dio calificacion"
     ) {
       console.log("SI TENGO CALIFICACION");
-
-      answers.push(`${count + 1} | ${data} | ${getRateOnly(response)}`);
-      console.log(answers);
+      
+      if (ignore)
+      {
+      
+        answers.push(`${count + 1} | ${data} | ${getRateOnly(response)}`);
+        console.log(answers);
+    
+       
+      }
+      setIgnore(true)
+  
 
       setTimeout(() => {
         if (!initial) {
@@ -282,6 +291,7 @@ const Chat = (props) => {
     }
 
     //Cuando todavia no termina el cuestionario y no le dio calificacion
+
 
     if (
       count < 20 &&
