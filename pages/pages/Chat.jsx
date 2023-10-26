@@ -25,6 +25,8 @@ const Chat = (props) => {
   const [questionnaireInfo, setQuestionnaireInfo] = useState([]);
 
   useEffect(() => {
+
+    document.title = "BlueSensAI";
     setPersonalData(props.userInfo);
 
     setTimeout(() => {

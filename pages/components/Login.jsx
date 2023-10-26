@@ -33,6 +33,12 @@ const Login = (props) => {
   const [selectedOcupacion, setSelectedOcupacion] = useState("estudiante");
   const [isCheckedValid, setIsCheckedValid] = useState(false);
 
+  useEffect(() => {
+
+    document.title = "BlueSensAI";
+   
+  }, []);
+
   const handleSelectGender = (event) => {
     setSelectedGender(event.target.value);
   };
