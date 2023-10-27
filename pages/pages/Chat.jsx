@@ -301,6 +301,7 @@ const Chat = (props) => {
       getRateFromResponse(response, rate, setRate, ignore) === "No me dio calificacion"
     ) {
       console.log("NO TENGO CALIFICACION");
+      setIgnore(true)
       setTimeout(() => {
         setMessages((old) => [
           ...old,
