@@ -25,7 +25,7 @@ export default function App() {
   return (
 
       <ChakraProvider theme={theme}>
-        {isReady ? <Chat userInfo={userInfo}/> : <Login onValueChange={handleLoginValue} getLoginInformation={getLoginInformation}/>}
+        {/*{isReady ? <Chat userInfo={userInfo}/> : <Login onValueChange={handleLoginValue} getLoginInformation={getLoginInformation}/>}*/}
       </ChakraProvider>
 
   );
