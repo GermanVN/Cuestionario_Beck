@@ -344,7 +344,7 @@ function generatePrompt(text, question, total) {
 
   if (question === 18) {
     return `Califica mi nivel de concentración del 0 al 3, donde el 0 Puedo concentrarme tan bien como de costumbre y 3 Encuentro que no puedo concentrarme en nada.
-    user: Puedo concentrarme tan bien como siempre, me concentro fácilmente, me concentro
+    user: Puedo concentrarme tan bien como siempre, me concentro fácilmente, me concentro sin variación
     system: 0,
     user: No puedo concentrarme tan bien como habitualmente, tengo un poco de dificultades de concentración
     system: 1,

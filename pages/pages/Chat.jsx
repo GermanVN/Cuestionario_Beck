@@ -30,6 +30,14 @@ const Chat = (props) => {
     setPersonalData(props.userInfo);
 
     setTimeout(() => {
+
+      const greetingMessage = `Hola ${props.userInfo.name} vamos a empezar con nuestra sesión`;
+      const introMessage = "Te haré unas preguntas para entender un poco más acerca de como te sientes, te recomiendo contestar con lo que mejor describa el modo de como te has sentido en los últimas dos semanas, incluyendo el día de hoy. Escribe cualquier cosa para continuar";
+
+      const boldText = "<strong>Te haré unas preguntas</strong>";
+      const updatedIntroMessage = introMessage.replace("Te haré unas preguntas", boldText);
+
+
       var utterance = new window.SpeechSynthesisUtterance();
       utterance.lang = "es-MX";
       utterance.volume = 4.0;
@@ -43,14 +51,14 @@ const Chat = (props) => {
         ...old,
         {
           from: "computer",
-          text: `Hola ${props.userInfo.name} vamos a empezar con nuestra sesión`,
+          text: greetingMessage,
         },
       ]);
       setMessages((old) => [
         ...old,
         {
           from: "computer",
-          text: "Te haré unas preguntas para entender un poco más acerca de como te sientes, te recomiendo contestar con lo que mejor describa el modo de como te has sentido en los últimas dos semanas, incluyendo el día de hoy. Escribe cualquier cosa para continuar",
+          text: updatedIntroMessage,
         },
       ]);
     }, 2000);

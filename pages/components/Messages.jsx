@@ -42,7 +42,7 @@ const Messages = ({ messages }) => {
                 my="1"
                 p="3"
               >
-                <Text>{item.text}</Text>
+                <Text dangerouslySetInnerHTML={{ __html: item.text }} />
               </Flex>
             </Flex>
           );

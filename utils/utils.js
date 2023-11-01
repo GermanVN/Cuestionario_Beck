@@ -1,7 +1,7 @@
 export const getQuestions = (count) => {
   const questions = [
     "Describe con qué frecuencia te sientes triste",
-    "¿Hasta qué punto te has sentido desalentado/a en relación a tu futuro?",
+    "¿En qué grado te has sentido desalentado/a en relación a tu futuro?",
     "Describe como te sientes frente al fracaso y con qué frecuencia sientes que fracasas",
     "¿Cómo ha variado tu nivel de placer en las actividades que regularmente disfrutas?",
     "¿Cómo describirías el nivel de culpabilidad que sientes?",
@@ -13,12 +13,12 @@ export const getQuestions = (count) => {
     "Describe si has notado un aumento en la agitación o inquietud que has experimentado",
     "Describe si has perdido interés en actividades o personas que solías disfrutar",
     "Describe el nivel de dificultad que has experimentado para tomar decisiones",
-    "¿Cómo describirías el nivel de valor que te asignas a ti mismo? ",
+    "¿Cómo describirías el nivel de valor personal que te asignas a ti mismo? ",
     "Describe tu nivel de energía para hacer tus actividades",
     "Describe si has experimentado aumento o disminución en las horas que dedicas a dormir habitualmente",
     "¿Qué tan irritable te encuentras habitualmente?",
     "Describe si has experimentado cambios en tu apetito (ya sea aumento o disminución)",
-    "Describe si tu capacidad de concentración ha variado recientemente",
+    "Describe si tu capacidad de concentración se ha mantenido normal o ha disminuido recientemente",
     "¿Cómo describirías tu nivel de cansancio o fatiga?",
     "Describe si ha habido cambios en tu interés por el sexo",
   ];
