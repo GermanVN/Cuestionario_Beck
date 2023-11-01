@@ -32,10 +32,7 @@ const Chat = (props) => {
     setTimeout(() => {
 
       const greetingMessage = `Hola ${props.userInfo.name} vamos a empezar con nuestra sesión`;
-      const introMessage = "Te haré unas preguntas para entender un poco más acerca de como te sientes, te recomiendo contestar con lo que mejor describa el modo de como te has sentido en los últimas dos semanas, incluyendo el día de hoy. Escribe cualquier cosa para continuar";
-
-      const boldText = "<strong>Te haré unas preguntas</strong>";
-      const updatedIntroMessage = introMessage.replace("Te haré unas preguntas", boldText);
+      const introMessage = `Te haré unas preguntas para entender un poco más acerca de como te sientes, te recomiendo contestar con lo que mejor describa el modo de como te has sentido <strong>en los últimas dos semanas, incluyendo el día de hoy.</strong> Escribe cualquier cosa para continuar`;
 
 
       var utterance = new window.SpeechSynthesisUtterance();
@@ -58,7 +55,7 @@ const Chat = (props) => {
         ...old,
         {
           from: "computer",
-          text: updatedIntroMessage,
+          text: introMessage,
         },
       ]);
     }, 2000);
