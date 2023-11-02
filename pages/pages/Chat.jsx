@@ -32,7 +32,7 @@ const Chat = (props) => {
     setTimeout(() => {
 
       const greetingMessage = `Hola ${props.userInfo.name} vamos a empezar con nuestra sesión`;
-      const introMessage = `Te haré una serie de preguntas. Por favor lea con atención cada una de ellas cuidadosamente. Luego describa el modo de como se ha sentido en <strong>las últimas dos semanas, incluyendo el día de hoy.</strong> Escribe cualquier cosa para continuar`;
+      const introMessage = `Te haré una serie de preguntas. Por favor lee con atención cada una de ellas cuidadosamente. Luego responde cada una de ellas con lo que mejor describa el modo de como te has sentido en <strong>las últimas dos semanas, incluyendo el día de hoy.</strong> <br><br><p>Escribe cualquier cosa para continuar</p>`;
 
 
       var utterance = new window.SpeechSynthesisUtterance();
