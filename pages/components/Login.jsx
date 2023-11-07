@@ -73,12 +73,12 @@ const Login = (props) => {
   };
 
   const mentalChangeHandler = (event) => {
-    isMentalValid = enteredMental.trim().length > 3;
+    isMentalValid = enteredMental.trim().length > 1;
     setEnteredMental(event.target.value);
   };
 
   const cronicaChangeHandler = (event) => {
-    isCronicaValid = enteredCronica.trim().length > 3;
+    isCronicaValid = enteredCronica.trim().length > 1;
     setEnteredCronica(event.target.value);
   };
 
@@ -104,12 +104,12 @@ const Login = (props) => {
   };
 
   const validateMentalHandler = () => {
-    setMentalIsValid(enteredMental.trim().length > 3);
+    setMentalIsValid(enteredMental.trim().length > 1);
     isMentalValid = true;
   };
 
   const validateCronicaHandler = () => {
-    setCronicaIsValid(enteredCronica.trim().length > 3);
+    setCronicaIsValid(enteredCronica.trim().length > 1);
     isCronicaValid = true;
   };
 

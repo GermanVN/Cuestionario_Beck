@@ -1,7 +1,7 @@
 export const getQuestions = (count) => {
   const questions = [
     "Describe con qué frecuencia te sientes triste",
-    "¿En qué grado te has sentido desalentado/a en relación a tu futuro?",
+    "Describe en qué grado te has sentido desalentado/a en relación a tu futuro",
     "Describe como te sientes frente al fracaso y con qué frecuencia sientes que fracasas",
     "¿Cómo ha variado tu nivel de placer en las actividades que regularmente disfrutas?",
     "¿Cómo describirías el nivel de culpabilidad que sientes?",

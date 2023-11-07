@@ -267,7 +267,7 @@ const Chat = (props) => {
 
     if (
       count < 20 &&
-      getRateFromResponse(response, rate, setRate, ignore) !== "No me dio calificacion"
+      getRateFromResponse(response, rate, setRate, ignore) !== "No me dio calificacion" && inputMessage.length > 10
     ) {
       console.log("SI TENGO CALIFICACION");
       
@@ -303,7 +303,7 @@ const Chat = (props) => {
 
     if (
       count < 20 &&
-      getRateFromResponse(response, rate, setRate, ignore) === "No me dio calificacion"
+      getRateFromResponse(response, rate, setRate, ignore) === "No me dio calificacion" || inputMessage.length < 10
     ) {
       console.log("NO TENGO CALIFICACION");
       setIgnore(true)
@@ -313,7 +313,7 @@ const Chat = (props) => {
           {
             from: "computer",
             text: !initial
-              ? "Por favor me puedes explicar un poco más? te voy a repetir la pregunta"
+              ? "Por favor me puedes explicar un poco más? Trata de ser un poco más descriptivo, te voy a repetir la pregunta"
               : "Perfecto comenzemos con las siguientes preguntas",
           },
         ]);
