@@ -180,7 +180,7 @@ const Chat = (props) => {
     const regex = /almatonta\d+/;
 
     // Cuando Termina el cuestionario
-    if (count == 20 || regex.test(inputMessage)) {
+    if (count == 20 && getRateFromResponse(response, rate, setRate, ignore) !== "No me dio calificacion" && inputMessage.length > 10) {
       console.log("Resultado FInal");
       console.log(inputMessage);
 
@@ -262,14 +262,49 @@ const Chat = (props) => {
       setCompleted(true);
     }
 
+
+    else if (
+      count == 20
+    ) {
+      console.log("NO TENGO CALIFICACION Casp = 20");
+      setIgnore(true)
+      setTimeout(() => {
+        setMessages((old) => [
+          ...old,
+          {
+            from: "computer",
+            text: !initial
+              ? "Por favor me puedes explicar un poco más? Trata de ser un poco más descriptivo, te voy a repetir la pregunta"
+              : "Perfecto comenzemos con las siguientes preguntas",
+          },
+        ]);
+      }, 2000);
+
+      setTimeout(() => {
+        if (!initial) {
+        }
+
+        if (initial) {
+          setInitial(false);
+        }
+
+        setMessages((old) => [
+          ...old,
+          { from: "computer", text: getQuestions(count) },
+        ]);
+      }, 4000);
+    }
+
+
+
     //Cuando todavia no termina el cuestionario y si le dio calificacion
 
 
-    if (
+    else if (
       count < 20 &&
       getRateFromResponse(response, rate, setRate, ignore) !== "No me dio calificacion" && inputMessage.length > 10
     ) {
-      console.log("SI TENGO CALIFICACION");
+      console.log("SI TENGO CALIFICACION CASO antes del 20");
       
       if (ignore)
       {
@@ -301,11 +336,11 @@ const Chat = (props) => {
     //Cuando todavia no termina el cuestionario y no le dio calificacion
 
 
-    if (
+   else  if (
       count < 20 &&
       getRateFromResponse(response, rate, setRate, ignore) === "No me dio calificacion" || inputMessage.length < 10
     ) {
-      console.log("NO TENGO CALIFICACION");
+      console.log("NO TENGO CALIFICACION Caso antes del 20");
       setIgnore(true)
       setTimeout(() => {
         setMessages((old) => [
@@ -333,6 +368,8 @@ const Chat = (props) => {
         ]);
       }, 4000);
     }
+
+
   };
 
   return (
